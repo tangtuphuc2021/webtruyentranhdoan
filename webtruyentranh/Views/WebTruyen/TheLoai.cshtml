@@ -1,0 +1,14 @@
+﻿@model IEnumerable<webtruyentranh.Models.TheLoai>
+
+<div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
+    @foreach (var theLoai in Model)
+    {
+    
+        <a href="@Url.Action("Sachtheotheloai","WebTruyen",new {id=theLoai.MaTL })"  class="dropdown-item">
+            @theLoai.TenTheLoai
+
+        </a>
+
+        }
+</div>
+

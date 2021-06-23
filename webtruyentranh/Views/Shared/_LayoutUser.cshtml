@@ -27,7 +27,7 @@
     <script src="~/Scripts/modernizr-3.5.0.min.js"></script>
 </head>
 <body>
-   //chao cac ban den voi github
+   
     <div class="container-fluid fh5co_header_bg">
         <div class="container">
             <div class="row">
@@ -91,56 +91,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">Thể Loại <span class="sr-only">(current)</span></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                                <a class="dropdown-item" href="#">Hành Động</a>
-                                <a class="dropdown-item" href="#">Phiêu Lưu</a>
-                                <a class="dropdown-item" href="#">Anime</a>
-                                <a class="dropdown-item" href="#">Chuyển Sinh</a>
-                                <a class="dropdown-item" href="#">Phiêu Lưu</a>
-                                <a class="dropdown-item" href="#">Cổ Đại</a>
-                                <a class="dropdown-item" href="#">Comedy</a>
-                                <a class="dropdown-item" href="#">Comic</a>
-                                <a class="dropdown-item" href="#">Demons</a>
-                                <a class="dropdown-item" href="#">Trinh Thám</a>
-                                <a class="dropdown-item" href="#">Drama</a>
-                                <a class="dropdown-item" href="#">Fantasy</a>
-                                <a class="dropdown-item" href="#">Gender Bender</a>
-                                <a class="dropdown-item" href="#">Harem</a>
-                                <a class="dropdown-item" href="#">Historical</a>
-                                <a class="dropdown-item" href="#">Horror</a>
-                                <a class="dropdown-item" href="#">Huyền Huyễn</a>
-                                <a class="dropdown-item" href="#">Iseka</a>
-                                <a class="dropdown-item" href="#">Josei</a>
-                                <a class="dropdown-item" href="#">Mafia</a>
-                                <a class="dropdown-item" href="#">Magic</a>
-                                <a class="dropdown-item" href="#">Manhua</a>
-                                <a class="dropdown-item" href="#">Manhwa</a>
-                                <a class="dropdown-item" href="#">Matiral Arts</a>
-                                <a class="dropdown-item" href="#">Mature</a>
-                                <a class="dropdown-item" href="#">Milrary</a>
-                                <a class="dropdown-item" href="#">Mystery</a>
-                                <a class="dropdown-item" href="#">Ngôn Tình</a>
-                                <a class="dropdown-item" href="#">One Shot</a>
-                                <a class="dropdown-item" href="#">Psychological</a>
-                                <a class="dropdown-item" href="#">Romance</a>
-                                <a class="dropdown-item" href="#">School Life</a>
-                                <a class="dropdown-item" href="#">Sci-fi</a>
-                                <a class="dropdown-item" href="#">Seinen</a>
-                                <a class="dropdown-item" href="#">Shoujo</a>
-                                <a class="dropdown-item" href="#">Shoujo AI</a>
-                                <a class="dropdown-item" href="#">Shounen</a>
-                                <a class="dropdown-item" href="#">Shounen AI</a>
-                                <a class="dropdown-item" href="#">Slice Of Life</a>
-                                <a class="dropdown-item" href="#">Smut</a>
-                                <a class="dropdown-item" href="#">Sports</a>
-                                <a class="dropdown-item" href="#">Supernatural</a>
-                                <a class="dropdown-item" href="#">Tragedy</a>
-                                <a class="dropdown-item" href="#">Trọng Sinh</a>
-                                <a class="dropdown-item" href="#">Truyện Màu</a>
-                                <a class="dropdown-item" href="#">Xuyên Không</a>
-                                <a class="dropdown-item" href="#">Yaoi</a>
-                                <a class="dropdown-item" href="#">Yuri</a>
-                            </div>
+                            @Html.Action("TheLoai","WebTruyen")
+                           
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown"
@@ -284,68 +236,7 @@
 
 
 
-    <div class="container-fluid pt-3">
-        <div class="container animate-box" data-animate-effect="fadeIn">
-            <div>
-                <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Trending</div>
-            </div>
-            <div class="owl-carousel owl-theme js" id="slider1">
-                <div class="item px-2">
-                    <div class="fh5co_latest_trading_img_position_relative">
-                        <div class="fh5co_latest_trading_img">
-                            <img src="~/images/1.jpg" alt=""
-                                 class="fh5co_img_special_relative" />
-                        </div>
-                        <div class="fh5co_latest_trading_img_position_absolute"></div>
-                        <div class="fh5co_latest_trading_img_position_absolute_1">
-                            <a href="single.html" class="text-white"> Đảo hải tặc </a>
-                            <div class="fh5co_latest_trading_date_and_name_color"> Chương 1016</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_latest_trading_img_position_relative">
-                        <div class="fh5co_latest_trading_img"><img src="~/images/2.jpg" alt="" class="fh5co_img_special_relative" /></div>
-                        <div class="fh5co_latest_trading_img_position_absolute"></div>
-                        <div class="fh5co_latest_trading_img_position_absolute_1">
-                            <a href="single.html" class="text-white"> 7 viên ngọc rồng siêu cấp </a>
-                            <div class="fh5co_latest_trading_date_and_name_color"> Chương 520 </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_latest_trading_img_position_relative">
-                        <div class="fh5co_latest_trading_img"><img src="~/images/3.jpg" alt="" class="fh5co_img_special_relative" /></div>
-                        <div class="fh5co_latest_trading_img_position_absolute"></div>
-                        <div class="fh5co_latest_trading_img_position_absolute_1">
-                            <a href="single.html" class="text-white"> Black Clover </a>
-                            <div class="fh5co_latest_trading_date_and_name_color"> Chương 295 </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_latest_trading_img_position_relative">
-                        <div class="fh5co_latest_trading_img"><img src="~/images/4.jpg" alt="" class="fh5co_img_special_relative" /></div>
-                        <div class="fh5co_latest_trading_img_position_absolute"></div>
-                        <div class="fh5co_latest_trading_img_position_absolute_1">
-                            <a href="single.html" class="text-white"> One punch man </a>
-                            <div class="fh5co_latest_trading_date_and_name_color"> Chương 194 </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_latest_trading_img_position_relative">
-                        <div class="fh5co_latest_trading_img"><img src="~/images/5.png" alt="" class="fh5co_img_special_relative" /></div>
-                        <div class="fh5co_latest_trading_img_position_absolute"></div>
-                        <div class="fh5co_latest_trading_img_position_absolute_1">
-                            <a href="single.html" class="text-white"> Hồi sinh thế giới </a>
-                            <div class="fh5co_latest_trading_date_and_name_color"> Chương 199 </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <div class="container-fluid pb-4 pt-5">
         <div class="container animate-box">
             <div>
@@ -482,7 +373,11 @@
                     </div>
                 </div>
                 <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
-
+                    <div>
+                        <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">NXB</div>
+                    </div>
+                    <div class="clearfix"></div>
+                    @Html.Action("NXB", "WebTruyen")
                     <div>
                         <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Lịch ra truyện<br />Ngày 20/6/2021</div>
                     </div>

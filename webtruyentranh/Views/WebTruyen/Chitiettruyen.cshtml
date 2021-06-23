@@ -1,0 +1,32 @@
+﻿<style type="text/css">
+    #thongtintruyen a{
+        clear:both; background-color:red;
+        color:white; width:120px; height:35px;
+        display:block;  float:right; text-align:center;
+        padding-top:10px; text-decoration:none; font-weight:bold;
+    }
+    #thongtintruyen a:hover{
+        background-color:gray;
+        color:red;
+    }
+</style>
+@{
+    ViewBag.Title = "Chitiettruyen";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<h3>Thông Tin Chi Tiết Truyện</h3>
+<div>
+    <div style="width:40%;float:left;border-left:dotted 1px;border-color:azure">
+        <img src="~/HinhAnh/@Model.Anhbia" width="80%"/>
+    </div>
+    <div style="width:60%;float:left;padding:10px">
+        <h4 style="font-weight:bold;color:red">Tên truyện:@Model.TenTruyen</h4>
+        <p style="text-align:justify;font-family:'Times New Roman'"><span style="font-weight:bold;font-family">Mô tả:</span>@Model.Mota</p>
+        <p style="text-align:bold"><span style="color:red;font-size:16pt">@Model.Tinhtrang</span></p>
+    </div>
+    
+      
+    </div>
+</div>
+
+

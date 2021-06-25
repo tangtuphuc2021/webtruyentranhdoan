@@ -1,15 +1,12 @@
 ﻿
+@model IEnumerable<webtruyentranh.Models.NHAXUATBAN>
 
 <div class="fh5co_tags_all">
     @foreach (var NHAXUATBAN in Model)
     {
-       <a href="@Url.Action("SachtheoNXB", "WebTruyen", new {id=NHAXUATBAN.MaNXB})" class="fh5co_tagg">
-           @NHAXUATBAN.TenNXB
-       </a>
-
-
-
-
+        <a href="@Url.Action("SachtheoNXB", "WebTruyen", new {id=NHAXUATBAN.MaNXB})" class="fh5co_tagg">
+            @NHAXUATBAN.TenNXB
+        </a>
 
     }
 </div>

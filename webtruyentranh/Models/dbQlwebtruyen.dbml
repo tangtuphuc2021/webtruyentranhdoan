@@ -65,6 +65,7 @@
       <Column Name="Tinhtrang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="Truyen_ChiTietDonMua" Member="ChiTietDonMuas" ThisKey="MaTruyen" OtherKey="MaTruyen" Type="ChiTietDonMua" />
       <Association Name="Truyen_VietTruyen" Member="VietTruyens" ThisKey="MaTruyen" OtherKey="MaTruyen" Type="VietTruyen" />
+      <Association Name="Truyen_Chap" Member="Chaps" ThisKey="MaTruyen" OtherKey="MaTruyen" Type="Chap" />
       <Association Name="NHAXUATBAN_Truyen" Member="NHAXUATBAN" ThisKey="MaNXB" OtherKey="MaNXB" Type="NHAXUATBAN" IsForeignKey="true" />
       <Association Name="TheLoai_Truyen" Member="TheLoai" ThisKey="MaTL" OtherKey="MaTL" Type="TheLoai" IsForeignKey="true" />
     </Type>
@@ -84,6 +85,24 @@
       <Column Name="ViTri" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="TACGIA_VietTruyen" Member="TACGIA" ThisKey="MaTG" OtherKey="MaTG" Type="TACGIA" IsForeignKey="true" />
       <Association Name="Truyen_VietTruyen" Member="Truyen" ThisKey="MaTruyen" OtherKey="MaTruyen" Type="Truyen" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Chap" Member="Chaps">
+    <Type Name="Chap">
+      <Column Name="MaChap" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenChap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="MaTruyen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Chap_HinhAnh" Member="HinhAnhs" ThisKey="MaChap" OtherKey="MaChap" Type="HinhAnh" />
+      <Association Name="Truyen_Chap" Member="Truyen" ThisKey="MaTruyen" OtherKey="MaTruyen" Type="Truyen" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HinhAnh" Member="HinhAnhs">
+    <Type Name="HinhAnh">
+      <Column Name="MaHinhAnh" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaChap" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HaChap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Chap_HinhAnh" Member="Chap" ThisKey="MaChap" OtherKey="MaChap" Type="Chap" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

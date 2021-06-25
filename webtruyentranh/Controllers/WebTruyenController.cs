@@ -33,6 +33,7 @@ namespace webtruyentranh.Controllers
             var nhaxuatban = from nxb in data.NHAXUATBANs select nxb;
             return PartialView(nhaxuatban);
         }
+      
         public ActionResult Sachtheotheloai(int id)
         {
             var truyen = from s in data.Truyens where s.MaTL==id select s;
@@ -42,6 +43,11 @@ namespace webtruyentranh.Controllers
         {
             var truyen = from s in data.Truyens where s.MaTruyen == id select s;
             return View(truyen.Single());
+        }
+        public ActionResult SachtheoNXB(int id)
+        {
+            var truyen = from s in data.Truyens where s.MaNXB == id select s;
+            return View(truyen);
         }
     }
 }

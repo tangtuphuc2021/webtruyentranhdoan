@@ -1,0 +1,14 @@
+﻿@model IEnumerable<webtruyentranh.Models.TinhTrang>
+<div>
+<div class="fh5co_tags_all">
+    @foreach (var TinhTrang in Model)
+    {
+        <a href="@Url.Action("Sachtheotinhtrang", "WebTruyen", new {id=TinhTrang.MaTinhTrang})" class="fh5co_tagg">
+            @TinhTrang.TenTinhTrang
+        </a>
+
+    }
+</div>
+
+</div>
+

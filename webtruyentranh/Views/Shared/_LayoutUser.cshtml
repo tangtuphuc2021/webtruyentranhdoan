@@ -67,8 +67,15 @@
                         <a href="#" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div></a>
                     </div>
                     <div class="d-inline-block text-center dd_position_relative ">
-                        <a href="#" class="fh5co_display_table"><div class="fh5co_verticle_middle"></div>Login</a>
+                        <a href="@Url.Action("Dangnhap","Nguoidung")" class="fh5co_display_table"><div class="fh5co_verticle_middle"></div>Login</a>
+
                     </div>
+
+                    <div class="d-inline-block text-center dd_position_relative ">
+                        <a href="@Url.Action("Dangky","Nguoidung") " class="fh5co_display_table"><div class="fh5co_verticle_middle"></div>Register</a>
+                    </div>
+                    
+
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -86,7 +93,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Trang Chủ <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="index.cshtml">Trang Chủ <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
@@ -98,13 +105,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">Sắp Xếp<span class="sr-only">(current)</span></a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                                <a class="dropdown-item" href="#">Top Ngày </a>
-                                <a class="dropdown-item" href="#">Top Tuần</a>
-                                <a class="dropdown-item" href="#">Top Tháng</a>
-                                <a class="dropdown-item" href="#">Yêu Thích</a>
-                                <a class="dropdown-item" href="#">Mới Cập Nhật</a>
-                                <a class="dropdown-item" href="#">Truyện Mới</a>
-                                <a class="dropdown-item" href="#">Truyện Full</a>
+                                @Html.Action("TinhTrang","WebTruyen")
                             </div>
                         </li>
                         <li class="nav-item ">
@@ -237,55 +238,7 @@
 
 
     
-    <div class="container-fluid pb-4 pt-5">
-        <div class="container animate-box">
-            <div>
-                <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Truyện mới cập nhật</div>
-            </div>
-            <div class="owl-carousel owl-theme" id="slider2">
-                <div class="item px-2">
-                    <div class="fh5co_hover_news_img">
-                        <div class="fh5co_news_img"><img src="~/images/mashle-magic-and-muscles.jpg" alt="" /></div>
-                        <div>
-                            <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">Mashle magic and muscles</span></a>
-                            <h6>Chương 66</h6>
-                            <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2021</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_hover_news_img">
-                        <div class="fh5co_news_img"><img src="~/images/nguoi-xau.jpg" alt="" /></div>
-                        <div>
-                            <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">Người xấu</span></a>
-                            <h6>Chương 16</h6>
-                            <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2021</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_hover_news_img">
-                        <div class="fh5co_news_img"><img src="~/images/nghich-thien-chien-than.jpg" alt="" /></div>
-                        <div>
-                            <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">Nghịch thiên chiến thần</span></a>
-                            <h6>Chương 230</h6>
-                            <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2021</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item px-2">
-                    <div class="fh5co_hover_news_img">
-                        <div class="fh5co_news_img"><img src="~/images/sozai-saishuka-no-isekai-ryokouki.jpg" alt="" /></div>
-                        <div>
-                            <a href="single.html" class="d-block fh5co_small_post_heading"><span class="">Sozai saishuka no isekai ryokouki</span></a>
-                            <h6>Chương 27</h6>
-                            <div class="c_g"><i class="fa fa-clock-o"></i> Oct 16,2021</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
 
     <div class="container-fluid pb-4 pt-4 paddding">

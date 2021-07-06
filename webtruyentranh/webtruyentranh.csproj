@@ -122,6 +122,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NguoidungController.cs" />
     <Compile Include="Controllers\WebTruyenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -131,6 +132,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbQlwebtruyen.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Vip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -256,7 +258,14 @@
     <Content Include="Views\WebTruyen\NXB.cshtml" />
     <Content Include="Views\WebTruyen\Sachtheotheloai.cshtml" />
     <Content Include="Views\WebTruyen\SachtheoNXB.cshtml" />
+    <Content Include="Views\Shared\_LayoutChiTiet.cshtml" />
     <Content Include="Views\WebTruyen\Chitiettruyen.cshtml" />
+    <Content Include="Views\WebTruyen\Sachtheotinhtrang.cshtml" />
+    <Content Include="Views\WebTruyen\TinhTrang.cshtml" />
+    <Content Include="Views\WebTruyen\CTTP.cshtml" />
+    <Content Include="Views\Nguoidung\Dangnhap.cshtml" />
+    <Content Include="Views\Nguoidung\Dangky.cshtml" />
+    <Content Include="Views\WebTruyen\Chitiettruyentraphi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

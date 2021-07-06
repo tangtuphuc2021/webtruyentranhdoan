@@ -1,8 +1,10 @@
 ﻿@model webtruyentranh.Models.Truyen
+
 @{
-    ViewBag.Title = "Chitiettruyen";
-    Layout = "~/Views/Shared/_LayoutChiTiet.cshtml";
+    ViewBag.Title = "CTTP";
+    Layout = "~/Views/Shared/_LayoutCTTP.cshtml";
 }
+
 
 <style type="text/css">
     #thongtintruyen a {
@@ -24,18 +26,18 @@
             color: red;
         }
 </style>
-<h3>Thông Tin Chi Tiết Truyện</h3>
+<h3>Thông Tin Chi Tiết Truyện Có Phi</h3>
 <div>
-    <div style="width:50%;float:right;border-left:dotted 0px;border-color:azure;padding-bottom:15px 15px">
+    <div style="width:50%;float:left;border-left:dotted 0px;border-color:azure;padding-bottom:15px 15px">
         <img src="~/HinhAnh/@Model.Anhbia" />
     </div>
-    <div style="width:50%;float:right;padding:10px 10px 30px ">
+    <div style="width:50%;float:left;padding:10px 10px 30px ">
         <h4 style="font-weight:bold;color:red;font-family:Arial">Tên truyện:@Model.TenTruyen</h4>
         <p style="text-align:justify;font-family:'Times New Roman'"><span style="font-weight:bold;">Mô tả: </span>@Model.Mota</p>
+
         <div id="thongtintruyen">
             <a href="@Url.Action("AddToCard","ShoppingCard",new { id = Model.MaTruyen })" class="list-group">
-                
-                <p style="font-weight:bold;color:white;font-family:Arial">Xem Truyện</p>
+                <p style="font-weight:bold;color:white;font-family:Arial">Mua Truyện</p>
             </a>
         </div>
     </div>
@@ -45,7 +47,4 @@
 <div>
     <p style="font-weight:bold;font-family:Arial">@Html.ActionLink("Quay lại trang chủ", "Index")</p>
 </div>
-
-
-
 

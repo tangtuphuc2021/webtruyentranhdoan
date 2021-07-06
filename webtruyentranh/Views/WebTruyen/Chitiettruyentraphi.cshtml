@@ -1,6 +1,6 @@
-﻿@model webtruyentranh.Models.Truyen
+﻿
 @{
-    ViewBag.Title = "Chitiettruyen";
+    ViewBag.Title = "Chitiettruyentraphi";
     Layout = "~/Views/Shared/_LayoutChiTiet.cshtml";
 }
 
@@ -34,8 +34,7 @@
         <p style="text-align:justify;font-family:'Times New Roman'"><span style="font-weight:bold;">Mô tả: </span>@Model.Mota</p>
         <div id="thongtintruyen">
             <a href="@Url.Action("AddToCard","ShoppingCard",new { id = Model.MaTruyen })" class="list-group">
-                
-                <p style="font-weight:bold;color:white;font-family:Arial">Xem Truyện</p>
+                <p style="font-weight:bold;color:white;font-family:Arial">Mua Truyện</p>
             </a>
         </div>
     </div>
@@ -45,7 +44,4 @@
 <div>
     <p style="font-weight:bold;font-family:Arial">@Html.ActionLink("Quay lại trang chủ", "Index")</p>
 </div>
-
-
-
 

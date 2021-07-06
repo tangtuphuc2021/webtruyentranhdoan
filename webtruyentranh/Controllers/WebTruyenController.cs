@@ -11,7 +11,7 @@ namespace webtruyentranh.Controllers
         //tạo 1 đối tượng data chứa dữ liệu model dbwebtruyen đã tạo
         dbQlwebtruyenDataContext data = new dbQlwebtruyenDataContext();
         //hàm lấy n quyển sách
-        private List<Truyen> laytruyenmoi (int count)
+        private List<Truyen> laytruyenmoi(int count)
         {
             //sap xep giam dan theo ngay cap nhat , lay count dong dau
             return data.Truyens.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
@@ -33,20 +33,59 @@ namespace webtruyentranh.Controllers
             var nhaxuatban = from nxb in data.NHAXUATBANs select nxb;
             return PartialView(nhaxuatban);
         }
-      
+
+        public ActionResult Check(int ID)
+        {
+            var truyen = from s in data.Truyens where s.MaTruyen == ID select s;
+
+            if (truyen.SingleOrDefault(n => n.MaTinhTrang == 1) != null)
+               return  RedirectToAction("Chitiettruyen", "WebTruyen", new { id=ID});
+
+            return RedirectToAction("Chitiettruyentraphi", "WebTruyen", new { id=ID });
+           
+
+        }
+        public ActionResult Chitiettruyen(int id)
+        {
+            
+            var truyen = from s in data.Truyens where s.MaTruyen == id select s;
+
+            return View(truyen.Single());
+        }
+
+
+        public ActionResult Chitiettruyentraphi(int id)
+        {
+            var truyen = from s in data.Truyens where s.MaTruyen == id select s;
+            return View(truyen.Single());
+        }
+
+
+
         public ActionResult Sachtheotheloai(int id)
         {
             var truyen = from s in data.Truyens where s.MaTL==id select s;
             return View(truyen);
         }
-        public ActionResult Chitiettruyen(int id)
-        {
-            var truyen = from s in data.Truyens where s.MaTruyen == id select s;
-            return View(truyen.Single());
-        }
+
+        
+      
+
         public ActionResult SachtheoNXB(int id)
         {
             var truyen = from s in data.Truyens where s.MaNXB == id select s;
+            return View(truyen);
+        }
+        public ActionResult TinhTrang()
+        {
+          
+            var tinhtrang = from cd in data.TinhTrangs select cd;
+            return PartialView(tinhtrang);
+        }
+        
+        public ActionResult Sachtheotinhtrang(int id)
+        {
+            var truyen = from s in data.Truyens where s.MaTinhTrang == id select s;
             return View(truyen);
         }
     }

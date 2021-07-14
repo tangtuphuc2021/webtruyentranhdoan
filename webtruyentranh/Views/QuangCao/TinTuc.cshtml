@@ -1,0 +1,25 @@
+﻿@model IEnumerable<webtruyentranh.Models.TinTuc>
+<div class="list-group">
+    @foreach (var TinTuc in Model)
+    {
+
+        <div class="row pb-4">
+
+            <div class="col-md-5">
+                <div class="fh5co_hover_news_img">
+                    <div class="fh5co_news_img"><img src="~/HinhAnh/@TinTuc.HinhAnh" alt="" /></div>
+                    <div></div>
+                </div>
+            </div>
+            <a href="">
+                <div class="col-md-7 animate-box">
+                    <a href="@Url.Action("ThongTinTinTuc","QuangCao",new {id=TinTuc.MaTinTuc })" class="fh5co_magna py-2"> @TinTuc.TieuDe </a> <a href="@Url.Action("ThongTinTinTuc","QuangCao",new {id=TinTuc.MaTinTuc })" class="fh5co_mini_time py-3">@TinTuc.Nguon @TinTuc.ThoiGian</a>
+
+                    <div class="fh5co_consectetur"> @TinTuc.MoDau</div>
+                </div>
+            </a>
+        </div>
+
+    }
+</div>
+

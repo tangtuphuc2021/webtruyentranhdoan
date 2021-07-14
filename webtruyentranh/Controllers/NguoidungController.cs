@@ -101,7 +101,7 @@ namespace webtruyentranh.Controllers
                 DocGia kh = data.DocGias.SingleOrDefault(n => n.Taikhoan == tendn && n.Matkhau == matkhau);
                 if (kh != null)
                 {
-                    Session["Taikhoan"] = kh.HoTen;
+                    Session["Taikhoan"] = kh;
                     //ViewBag.tendn = kh.HoTen;
                     return RedirectToAction("Index", "WebTruyen");
                    

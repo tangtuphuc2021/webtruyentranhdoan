@@ -1,0 +1,108 @@
+﻿@using webtruyentranh.Models
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutShoppingcart.cshtml";
+}
+
+<h1 style="text-align:center;color:red">THÔNG TIN GIỎ HÀNG</h1>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<!--
+    you can substitue the span of reauth email for a input with the email and
+    include the remember me checkbox
+    -->
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:5%">Mã Truyện</th>
+                <th style="width:15%">Tên Sách</th>
+                <th style="width:30%">Ảnh Bìa</th>
+                <th style="width:30%">Số Lượng</th>
+                <th style="width:10%">Đơn giá</th>
+                <th style="width:22%" class="text-center">Thành tiền</th>
+                <th width="70%"></th>
+                <th width="70%"></th>
+                <th width="70%"></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td data-th="Mã Truyện">
+                        <div class="row">
+
+                            <div class="col-sm-10">
+                                <h4 class="nomargin">@item.iMaTruyen</h4>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Tên Sách">@item.sTenTruyen</td>
+                    <td data-th="Tên Sách"><img src="~/HinhAnh/@item.sAnhbia" width="30%" /></td>
+                    @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { id = item.iMaTruyen }))
+                    {
+                    <td data-th="Số Lượng">
+                        <input type="number" class="form-control text-center" value="@item.iSoluong" name="txtSoluong"size="3" min="1">
+                    </td>
+                    <td data-th="Subtotal" class="text-center">@String.Format("{0:0,0}", item.dGiaban)</td>
+                    <td data-th="Subtotal" class="text-center">@String.Format("{0:0,0}", item.dThanhtien)</td>
+                    <td>
+                        <button class="btn btn-info btn-sm">
+                            <a href="@Url.Action("Chitiettruyentraphi", "WebTruyen", new { id = item.iMaTruyen })">Chi Tiết</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">
+                            <b>
+                                @Html.ActionLink("Xóa", "XoaGiohang", new { @iMaSP = item.iMaTruyen })
+
+                            </b>
+                        </button>
+                    </td>
+                    <td>
+                        <input type="submit" value="Cập nhật" style="background:#05f7f7 ;color:red"  />
+                    </td>
+                    }
+
+                </tr>
+            </tbody>
+        }
+        <tfoot>
+
+            <tr style="text-align:right;font-weight:bold;color:red">
+                <td><a href="https://localhost:44354/WebTruyen/Sachtheotinhtrang/2" class="btn btn-warning"><i class="fa fa-angle-left"></i> Mua Tiếp</a></td>
+                <td></td>
+                <td></td>
+                <td colspan="1" class="hidden-xs text-center"><strong>Số Lượng Sách:@ViewBag.Tongsoluong</strong></td>
+                <td colspan="2" class="hidden-xs text-center"><strong>Tổng Tiền:@String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</strong></td>
+               
+                <td colspan="2">@Html.ActionLink("Xoá Giỏ Hàng ", "XoaTatcaGiohang")</td>
+                <td>
+                    <button class="btn btn-warning">
+                        <b style="color:white">
+                            @Html.ActionLink("Đặt hàng ", "Dathang", "Giohang") <i class="fa fa-angle-right"></i>
+                        </b>
+                    </button>
+                </td>
+
+            </tr>
+
+        </tfoot>
+    </table>
+</div>
+<style>
+    a {
+        color: red
+   
+    }
+</style>

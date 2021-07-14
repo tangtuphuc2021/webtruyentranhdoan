@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewBag.Title = "Dathang";
+    Layout = "~/Views/Shared/_Layoutthanhtoan.cshtml";
+}
+
+
+<h1 style="text-align:center;color:red">THÔNG TIN ĐƠN HÀNG </h1>>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<!--
+    you can substitue the span of reauth email for a input with the email and
+    include the remember me checkbox
+    -->
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:5%">Mã Truyện</th>
+                <th style="width:15%">Tên Sách</th>
+                <th style="width:30%">Ảnh Bìa</th>
+                <th style="width:30%">Số Lượng</th>
+                <th style="width:10%">Đơn giá</th>
+                <th style="width:22%" class="text-center">Thành tiền</th>
+
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td data-th="Mã Truyện">
+                        <div class="row">
+
+                            <div class="col-sm-10">
+                                <h4 class="nomargin">@item.iMaTruyen</h4>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Tên Sách">@item.sTenTruyen</td>
+                    <td data-th="Tên Sách"><img src="~/HinhAnh/@item.sAnhbia" width="30%" /></td>
+
+                    <td data-th="Số Lượng">
+                        @item.iSoluong
+                    </td>
+                    <td data-th="Subtotal" class="text-center">@String.Format("{0:0,0}", item.dGiaban)</td>
+                    <td data-th="Subtotal" class="text-center">@String.Format("{0:0,0}", item.dThanhtien)</td>
+
+
+
+                </tr>
+            </tbody>
+        }
+        <tfoot>
+
+            <tr style="text-align:right;font-weight:bold;color:red">
+                <td>
+                    <button class="btn btn-warning">
+                        <b style="color:white">
+                            <i class="fa fa-angle-left"></i>   @Html.ActionLink("Trở Về Giỏ Hàng", "GioHang", "GioHang")
+                        </b>
+                    </button>
+                </td>
+                <td></td>
+                <td></td>
+                <td colspan="1" class="hidden-xs text-center"><strong>Số Lượng Sách:@ViewBag.Tongsoluong</strong></td>
+                <td colspan="2" class="hidden-xs text-center"><strong>Tổng Tiền:@String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</strong></td>
+
+
+            </tr>
+
+        </tfoot>
+    </table>
+</div>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<h1 style="text-align:center;color:red">THÔNG TIN ĐẶT HÀNG</h1>
+@using webtruyentranh.Models
+@{
+    DocGia kh = (DocGia)Session["Taikhoan"];
+}
+<section id="contact">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div class="container">
+            <div class="well well-sm">
+                <h3><strong>Liên hệ với chúng tôi</strong></h3>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.460814403367!2d106.65089901472608!3d10.775974792321833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f19f87bfcd7%3A0x2a0d35baed5d97d9!2zMTE2LzMvOCBUaGnDqm4gUGjGsOG7m2MsIFBoxrDhu51uZyA5LCBUw6JuIELDrG5oLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1625896251093!5m2!1svi!2s" width="100%" height="315" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-5">
+                    <h4><strong>Liên hệ đặt hàng</strong></h4>
+                    <form>
+                        <table>
+                            <tr style="height:40px">
+                                <td>Họ tên khác hàng:</td>
+                                <td style="font-weight:bold"> @kh.HoTen</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td>Địa chỉ:</td>
+                                <td style="font-weight:bold"> @kh.Diachi</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td>Điện thoại:</td>
+                                <td style="font-weight:bold"> @kh.Dienthoai</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td>Ngày đặt hàng:</td>
+                                <td style="font-weight:bold"> @DateTime.Now.ToShortDateString()</td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td>Ngày giao hàng: </td>
+                                <td style="font-weight:bold">
+                                    <input type="date" name="Ngaygiao" />
+                                </td>
+                            </tr>
+                            <tr style="height:40px">
+                                <td></td>
+
+                                <td>
+                                    <div> <input type="submit" value="Đồng Ý Đặt Hàng" /> </div>
+
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    }
+</section>
+<style>
+    a {
+        color: red
+    }
+</style>

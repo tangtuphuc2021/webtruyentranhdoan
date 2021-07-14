@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "ThongTinTinTuc";
+    Layout = "~/Views/Shared/_LayoutQuangCao.cshtml";
+}
+
+<div class="container-fluid pb-4 pt-4">
+    <div class="container animate-box">
+        <div>
+            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Tin tức truyện tranh</div>
+        </div>
+        <div style="width: 100%;padding:5px;  text-align: left;">
+            <h1 style="font-weight:bold;font-family:'Times New Roman';color:black">
+                @Model.TieuDe
+            </h1>
+
+            <div class="kbwc-meta" sourceid="0" style="font-family:'Times New Roman'">
+                <span class="kbwcm-author" style="color:coral;">@Model.TacGia, </span>
+                <span class="kbwcm-source"> @Model.Nguon </span>
+                <span class="kbwcm-time">  @Model.ThoiGian</span>
+
+                <div class="af-tts fr"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pb-4 pt-4">
+    @*2222222222222222222222222222222222222222222*@
+    <div class="container animate-box">
+        <div>
+            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4"></div>
+        </div>
+        <div style="width: 85%; padding: 5px; text-align: left;">
+            <h3 style="font-weight: bold; color: black; font-family: 'Times New Roman'">
+                @Model.MoDau
+            </h3>
+            <div id="admzonek9l79lft"></div>
+            <div class="knc-relate-wrapper relationnews">
+                <ul class="krw-list">
+
+                    <li class="krwli">
+                        <a style="font-family: 'Times New Roman'; color: black " data-newsid="20210127174418288" href="/khong-chiu-kem-canh-son-tung-m-tp-thay-ba-ra-mat-truyen-tranh-ve-doi-tuyen-sbtc-esports-20210127174418288.chn" title="Kh&#244;ng chịu k&#233;m cạnh Sơn T&#249;ng M-TP, Thầy Ba ra mắt truyện tranh về đội tuyển SBTC Esports" data-popup-url="/khong-chiu-kem-canh-son-tung-m-tp-thay-ba-ra-mat-truyen-tranh-ve-doi-tuyen-sbtc-esports-20210127174418288rf20210201144506533.chn">
+                            Không chịu kém cạnh Sơn Tùng M-TP, Thầy Ba ra mắt truyện tranh về đội tuyển SBTC Esports
+                            <i class="icon-show-popup"></i>
+                        </a>
+                    </li>
+
+                    <li class="krwli">
+                        <a style="font-family: 'Times New Roman'; color: black " data-newsid="2021012315492541" href="/sbtc-esports-co-man-ra-mat-vcs-hu-hon-thay-giao-ba-voi-trach-tat-ca-tai-thang-loc-2021012315492541.chn" title="SBTC Esports c&#243; m&#224;n ra mắt VCS &amp;quot;h&#250; hồn&amp;quot;, Thầy Gi&#225;o Ba vội tr&#225;ch: &amp;quot;Tất cả tại thằng Lộc&amp;quot;" data-popup-url="/sbtc-esports-co-man-ra-mat-vcs-hu-hon-thay-giao-ba-voi-trach-tat-ca-tai-thang-loc-2021012315492541rf20210201144506533.chn">
+                            SBTC Esports có màn ra mắt VCS "hú hồn", Thầy Giáo Ba vội trách: "Tất cả tại thằng Lộc"
+                            <i class="icon-show-popup"></i>
+                        </a>
+                    </li>
+
+                    <li class="krwli">
+                        <a style="font-family: 'Times New Roman'; color: black " data-newsid="20210117151424565" href="/5-dieu-dang-cho-doi-truoc-them-vcs-mua-xuan-2021-sbtc-esports-lieu-co-tau-hai-20210117151424565.chn" title="5 điều đ&#225;ng chờ đợi trước thềm VCS m&#249;a Xu&#226;n 2021: SBTC Esports liệu c&#243; tấu h&#224;i?" data-popup-url="/5-dieu-dang-cho-doi-truoc-them-vcs-mua-xuan-2021-sbtc-esports-lieu-co-tau-hai-20210117151424565rf20210201144506533.chn">
+                            5 điều đáng chờ đợi trước thềm VCS mùa Xuân 2021: SBTC Esports liệu có tấu hài?
+                            <i class="icon-show-popup"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div data-check-position="body_start"></div>
+        <div class="knc-content">
+
+
+            <!-- Kham pha -->
+
+            <div style="width: 85%;font-weight: bold; font-size: larger; font-family: 'Times New Roman' ">
+
+                <p>@Model.NoiDung</p>
+
+                <div class="VCSortableInPreviewMode" style type="Photo"><div><img style="width:100%;max-width:100%;" src="~/HinhAnh/@Model.HinhAnh" /><div class="PhotoCMS_Caption"><p data-placeholder="[nhập chú thích]">@Model.ChuThich</p></div></div></div>
+                <p>@Model.NoiDung2</p>
+
+                <div class="VCSortableInPreviewMode active noCaption" style type="Photo"><div><img style="width:100%;max-width:100%;" src="~/HinhAnh/@Model.HinhAnh2" /><div class="PhotoCMS_Caption"><p data-placeholder="[nhập chú thích]">@Model.ChuThich2</p></div> </div></div>
+                <p>@Model.NoiDung3 </p>
+                <div class="VCSortableInPreviewMode active noCaption" style type="Photo"><div><img style="width:100%;max-width:100%;" src="~/HinhAnh/@Model.HinhAnh3" /><div class="PhotoCMS_Caption"><p data-placeholder="[nhập chú thích]">@Model.ChuThich3</p></div></div></div>
+                <p>@Model.NoiDung4 </p>
+               
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+

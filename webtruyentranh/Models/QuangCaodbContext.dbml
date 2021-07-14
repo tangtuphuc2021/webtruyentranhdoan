@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuangCao" Class="QuangCaodbContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-JGRFEOK2\SQLEXPRESS;Initial Catalog=QuangCao;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QuangCaoConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TinTuc" Member="TinTucs">
+    <Type Name="TinTuc">
+      <Column Name="MaTinTuc" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TieuDe" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="MoDau" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Nguon" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TacGia" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ThoiGian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HinhAnh2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HinhAnh3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NoiDung2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NoiDung3" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NoiDung4" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ChuThich" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ChuThich2" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ChuThich3" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

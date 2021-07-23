@@ -11,35 +11,31 @@
   
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenNXB)
-        </dt>
+       
 
         <dd>
+            &emsp;<b>Tên nhà xuất bản:</b>&nbsp;&nbsp;&nbsp;&nbsp;
             @Html.DisplayFor(model => model.TenNXB)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Diachi)
-        </dt>
 
         <dd>
+            &emsp;<b> Địa chỉ:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             @Html.DisplayFor(model => model.Diachi)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DienThoai)
-        </dt>
 
         <dd>
+            &emsp;<b>Điện thoại:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             @Html.DisplayFor(model => model.DienThoai)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaNXB }) |
-    @Html.ActionLink("Back to List", "Index")
+    &emsp;@Html.ActionLink("Edit", "Edit", new { id = Model.MaNXB })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="@Url.Action("Index","Nhaxuatban")" style="background-color: #dc3545; border-radius: 15px" class="btn btn-default">Quay trở lại</a>
+
 </p>
 <style>
     dt {

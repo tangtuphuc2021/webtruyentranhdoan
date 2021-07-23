@@ -1,0 +1,80 @@
+﻿@model webtruyentranh.Models.DocGia
+
+@{
+    ViewBag.Title = "TTDocGia";
+    Layout = "~/Views/Shared/_LayoutThongTinDG.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h3 style="text-align:center;font-family:Arial, Helvetica, sans-serif">Thông tin độc giả</h3>
+
+    <div class="form-horizontal " style="margin-left:400px">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaDG)
+
+        <div class="form-group">
+            <b style="font-family:Arial, Helvetica, sans-serif;font-size:15pt">Họ Tên:</b>
+            <div class="col-md-10" style="width:900px">
+                @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <b style="font-family:Arial, Helvetica, sans-serif;font-size:15pt">Email:</b>
+            <div class="col-md-10" style="width:900px">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b style="font-family:Arial, Helvetica, sans-serif;font-size:15pt">Địa Chỉ:</b>
+            <div class="col-md-10" style="width:900px">
+                @Html.EditorFor(model => model.Diachi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Diachi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b style="font-family:Arial, Helvetica, sans-serif;font-size:15pt">Số Điện Thoại:</b>
+            <div class="col-md-10" style="width:900px">
+                @Html.EditorFor(model => model.Dienthoai, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Dienthoai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <b style="font-family:Arial, Helvetica, sans-serif;font-size:15pt">Ngày Sinh:</b>
+            <div class="col-md-10" style="width:900px">
+                @Html.EditorFor(model => model.Ngaysinh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ngaysinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <b style="font-family:Arial, Helvetica, sans-serif;font-size:15pt">Mật Khẩu:</b>
+            <div class="col-md-10" style="width:900px">
+
+
+                <input class="form-control" type="password" name="MatKhau" value="@Model.Matkhau" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+

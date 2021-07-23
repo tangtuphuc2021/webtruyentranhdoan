@@ -33,19 +33,23 @@
         <h4 style="font-weight:bold;color:red;font-family:Arial">Tên truyện:@Model.TenTruyen</h4>
         <p style="text-align:justify;font-family:'Times New Roman'"><span style="font-weight:bold;">Mô tả: </span>@Model.Mota</p>
         <div id="thongtintruyen">
-            <a href="@Url.Action("AddToCard","ShoppingCard",new { id = Model.MaTruyen })" class="list-group">
-                
+            <a href="@Url.Action("DSChuong","ChapTruyen",new { id = Model.MaTruyen })" class="list-group">
+
                 <p style="font-weight:bold;color:white;font-family:Arial">Xem Truyện</p>
             </a>
         </div>
     </div>
 
-
+    
 </div>
-<div>
-    <p style="font-weight:bold;font-family:Arial">@Html.ActionLink("Quay lại trang chủ", "Index")</p>
+<div class="clear">
+    
 </div>
 
-
+<style>
+    .clear{
+        clear:both;
+    }
+</style>
 
 

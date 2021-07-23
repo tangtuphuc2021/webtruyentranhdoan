@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using webtruyentranh.Models;
+using PagedList;
+using PagedList.Mvc;
 namespace webtruyentranh.Controllers
 {
     public class WebTruyenController : Controller
@@ -17,11 +19,12 @@ namespace webtruyentranh.Controllers
             return data.Truyens.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
         }
         // GET: WebTruyen
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
-            //lay 5 quyen sach moi nhat
-            var truyenmoi = laytruyenmoi(5);
-            return View(truyenmoi);
+            int pagesize = 5;
+            int pagenum = (page ?? 1);
+            var truyenmoi = laytruyenmoi(19);
+            return View(truyenmoi.ToPagedList(pagenum, pagesize));
         }
         public ActionResult TheLoai()
         {
@@ -62,19 +65,28 @@ namespace webtruyentranh.Controllers
 
 
 
-        public ActionResult Sachtheotheloai(int id)
+        public ActionResult Sachtheotheloai(int id, int? page)
         {
+            int pagesize = 5;
+            int pagenum = (page ?? 1);
             var truyen = from s in data.Truyens where s.MaTL==id select s;
-            return View(truyen);
+            return View(truyen.ToPagedList(pagenum, pagesize));
+        }
+        public ActionResult ThaoLuan()
+        {
+
+            return PartialView();
         }
 
-        
-      
 
-        public ActionResult SachtheoNXB(int id)
+
+
+        public ActionResult SachtheoNXB(int id,int ? page)
         {
+            int pagesize = 5;
+            int pagenum = (page ?? 1);
             var truyen = from s in data.Truyens where s.MaNXB == id select s;
-            return View(truyen);
+            return View(truyen.ToPagedList(pagenum, pagesize));
         }
         public ActionResult TinhTrang()
         {
@@ -83,10 +95,20 @@ namespace webtruyentranh.Controllers
             return PartialView(tinhtrang);
         }
         
-        public ActionResult Sachtheotinhtrang(int id)
+        public ActionResult Sachtheotinhtrang(int id, int? page)
         {
+            int pagesize = 5;
+            int pagenum = (page ?? 1);
             var truyen = from s in data.Truyens where s.MaTinhTrang == id select s;
-            return View(truyen);
+            return View(truyen.ToPagedList(pagenum, pagesize));
+        }
+        [HttpPost]
+        public ActionResult Search(string keyword)
+        {
+
+            var all = data.Truyens.Where(x => x.TenTruyen.Contains(keyword));
+
+            return View(all);
         }
     }
 }

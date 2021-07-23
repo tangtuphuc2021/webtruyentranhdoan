@@ -1,0 +1,39 @@
+﻿@model webtruyentranh.Models.DonMuaTruyen
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaDonHang)
+
+        <div class="form-group" style="margin-left:50px">
+            <span class="control-label col-md-2">Trạng thái</span>
+            <div class="col-md-10">
+                @Html.DropDownList("Tinhtranggiaohang")
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-left:50px">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+
+        </div>
+        <div>
+            <a href="@Url.Action("Index","DonHang")" style="background-color: #dc3545; border-radius: 15px; margin-left: 50px" class="btn btn-default">Quay trở lại</a>
+
+        </div>
+    </div>
+}
+
+

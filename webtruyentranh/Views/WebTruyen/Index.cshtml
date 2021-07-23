@@ -1,4 +1,7 @@
 ﻿
+@using webtruyentranh.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<Truyen>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -9,28 +12,35 @@
 <div class="container-fluid pt-3">
     <div class="container animate-box" data-animate-effect="fadeIn">
         <div>
-            <div class="fh5co_  heading fh5co_heading_border_bottom py-2 mb-4">Trending</div>
+            <div class="fh5co_  heading fh5co_heading_border_bottom py-2 mb-4">Danh sách</div>
         </div>
         <div class="owl-carousel owl-theme js" id="slider1">
             @foreach (var truyen in Model)
             {
-            <div class="item px-2">
-                <a href="@Url.Action("Check","WebTruyen",new {id=truyen.MaTruyen })">
-                <div class="fh5co_latest_trading_img_position_relative">
-                    <div class="fh5co_latest_trading_img">
-                        <img src="~/HinhAnh/@truyen.Anhbia" 
-                             class="fh5co_img_special_relative" />
-                    </div>
-                    <div class="fh5co_latest_trading_img_position_absolute"></div>
-                    <div class="fh5co_latest_trading_img_position_absolute_1">
-                        <a href="single.html" class="text-white"> @truyen.TenTruyen </a>
-                        <div class="c_g"><i class="fa fa-clock-o"></i> @truyen.Ngaycapnhat</div>
-                    </div>
+                <div class="item px-2">
+                    <a href="@Url.Action("Check","WebTruyen",new {id=truyen.MaTruyen })">
+                        <div class="fh5co_latest_trading_img_position_relative">
+                            <div class="fh5co_latest_trading_img">
+                                <img src="~/HinhAnh/@truyen.Anhbia"
+                                     class="fh5co_img_special_relative" />
+                            </div>
+                            <div class="fh5co_latest_trading_img_position_absolute"></div>
+                            <div class="fh5co_latest_trading_img_position_absolute_1">
+                                <a href="single.html" class="text-white"> @truyen.TenTruyen </a>
+                                <div class="c_g"><i class="fa fa-clock-o"></i> @truyen.Ngaycapnhat</div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                </a>
-            </div>
             }
 
+        </div>
+        <div class="pagination pagination-small pagination-centered" align="center" style="margin-left:420px">
+            <ul>
+
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+
+            </ul>
         </div>
     </div>
 </div>

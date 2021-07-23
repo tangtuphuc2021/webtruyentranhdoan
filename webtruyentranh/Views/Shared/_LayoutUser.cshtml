@@ -11,9 +11,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Đọc truyện tranh online</title>
-
+    <link href="~/Content2/style00.css" rel="stylesheet" />
     <link href="~/Content/media_query.css" rel="stylesheet" />
-
+    <link href="~/Content2/bootstrap1.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -21,22 +21,24 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link href="~/Content/owl.carousel.css" rel="stylesheet" />
     <link href="~/Content/owl.theme.default.css" rel="stylesheet" />
+    <link href="~/Content2/themify-icons/themify-icons.css" rel="stylesheet" />
     <!-- Bootstrap CSS -->
     <link href="~/Content/style_1.css" rel="stylesheet" />
     <!-- Modernizr JS -->
     <script src="~/Scripts/modernizr-3.5.0.min.js"></script>
 </head>
 <body>
-   
+
     <div class="container-fluid fh5co_header_bg">
+        <a href="tel:0374768862" class="ti-headphone" style="float: right; line-height: 3.5;"> Phone: 0374768862</a>
         <div class="container">
             <div class="row">
                 <div class="col-12 fh5co_mediya_center">
                     <a href="#" class="color_fff fh5co_mediya_setting">
-                        <i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;Thứ 4, ngày 25 tháng 6 
+                        <i class="fa fa-clock-o"> @DateTime.Now</i>&nbsp;&nbsp;&nbsp;
                     </a>
                     <div class="d-inline-block fh5co_trading_posotion_relative">
-                        <a href="#" class="treding_btn">Trending</a>
+                        <a href="#" class="treding_btn">READ EVERYTHING</a>
                         <div class="fh5co_treding_position_absolute"></div>
                     </div>
                     <a href="#" class="color_fff fh5co_mediya_setting">Chào mừng bạn đến trang web của chúng tôi</a>
@@ -48,26 +50,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-3 fh5co_padding_menu">
-                    <img src="~/images/logo.png" alt="img" class="fh5co_logo_width" />
+                    <img src="~/HinhAnh/logo.png" alt="img" class="fh5co_logo_width" />
                 </div>
                 <div class="col-12 col-md-9 align-self-center fh5co_mediya_right">
                     <div class="text-center d-inline-block">
-                        <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-search"></i></div></a>
+                        <form method="post" action="/WebTruyen/Search">
+                            <div class="top-search">
+                                <input name="keyword" type="text" class="text-search" placeholder="Bạn hãy nhập từ khoá">
+                                <button type="submit" class="submit-btn btn_search"></button>
+                                <div class="list-results">
+                                    Add class 'open' to open list results
+                                    <div class="title-search">Tìm kiếm gần đây</div>
+                                    <div class="list-container">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
                     </div>
                     <div class="text-center d-inline-block">
-                        <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div></a>
+                        <a href="https://www.instagram.com/24new.read/?fbclid=IwAR3rzAcS38s-aapv9Gpot87Etlzm4yaGk7vAtL66hLJ7kA67YPaQuA1plbw" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="ti-instagram"></i></div></a>
                     </div>
                     <div class="text-center d-inline-block">
-                        <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div></a>
+                        <a href="https://www.youtube.com/channel/UCOMf0FAi5-qAEiot5wZsqeA?fbclid=IwAR0H2hL26pd1u7kZCa-aVwxO9Z_rkeGAyMBEZAlUCW5yPsatITq2tgLqwXg" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa ti-youtube"></i></div></a>
                     </div>
                     <div class="text-center d-inline-block">
-                        <a href="#" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div></a>
-                    </div>
-                    <div class="text-center d-inline-block">
-                        <a href="#" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div></a>
+                        <a href="https://www.facebook.com/24New-744547766269246/" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div></a>
                     </div>
                     <div class="d-inline-block text-center dd_position_relative ">
-                        <a href="@Url.Action("Dangnhap","Nguoidung")" class="fh5co_display_table"><div class="fh5co_verticle_middle"></div>Login</a>
+                        @if (Session["Taikhoan"] != null)
+                        {
+                            @*<a href="#" style="font-weight:bold">Xin Chào: @Session["tk"] </a>*@
+                            <a href="@Url.Action("DangXuat","Nguoidung")" class="fh5co_display_table"><div class="fh5co_verticle_middle"></div>Logout</a>
+
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Dangnhap","Nguoidung")" class="fh5co_display_table"><div class="fh5co_verticle_middle"></div>Login</a>
+
+                        }
 
                     </div>
 
@@ -75,16 +97,16 @@
                         <a href="@Url.Action("Dangky","Nguoidung") " class="fh5co_display_table"><div class="fh5co_verticle_middle"></div>Register</a>
                     </div>
                     <div class="text-center d-inline-block">
-                       <div class="fh5co_verticle_middle    "  >
-                           <b>@Html.Action("GiohangPartial", "GioHang")</b>
-                               
-                       
-                        </div>
-                </div>
-                
+                        <div class="fh5co_verticle_middle    ">
+                            <b>@Html.Action("GiohangPartial", "GioHang")</b>
 
-                <div class="clearfix"></div>
-            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="clearfix"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -96,7 +118,7 @@
                         aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="~/images/logo.png" alt="img" class="mobile_logo_width" /></a>
+                <a class="navbar-brand" href="#"><img src="~/HinhAnh/logo.png" alt="img" class="mobile_logo_width" /></a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
@@ -105,30 +127,43 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">Thể Loại <span class="sr-only">(current)</span></a>
-                            @Html.Action("TheLoai","WebTruyen")
-                           
+                            @Html.Action("TheLoai", "WebTruyen")
+
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">Sắp Xếp<span class="sr-only">(current)</span></a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                                @Html.Action("TinhTrang","WebTruyen")
+                                @Html.Action("TinhTrang", "WebTruyen")
                             </div>
                         </li>
+                         
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">Lịch Sử <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#">Theo Dõi <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="@Url.Action("LienHe","QuangCao")">Liên Hệ <span class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">Thảo Luận <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li>
-                        <a class="nav-link" href="#">Fanpage <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="https://localhost:44354/WebTruyen/ThaoLuan">Thảo Luận <span class="sr-only">(current)</span></a>
+
                         </li>
                        
+                        <li>
+                            @if (Session["Taikhoan"] != null)
+                            {
+
+
+                                <a class="nav-link" href="@Url.Action("TTDocGia","Nguoidung", new {id=  Session["id"] })">Thông Tin Tài Khoản <span class="sr-only">(current)</span></a>
+
+
+                            }
+                            else
+                            {
+                                <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+
+
+                            }
+                        </li>
+
                     </ul>
                 </div>
             </nav>
@@ -245,8 +280,8 @@
 
 
 
-    
-    
+
+
 
 
     <div class="container-fluid pb-4 pt-4 paddding">
@@ -318,22 +353,13 @@
                     </div>
                 </div>
             </div>
-            <div class="row mx-0 animate-box" data-animate-effect="fadeInUp">
-                <div class="col-12 text-center pb-4 pt-4">
-                    <a href="#" class="btn_mange_pagging"><i class="fa fa-long-arrow-left"></i>&nbsp;&nbsp; Previous</a>
-                    <a href="#" class="btn_pagging">1</a>
-                    <a href="#" class="btn_pagging">2</a>
-                    <a href="#" class="btn_pagging">3</a>
-                    <a href="#" class="btn_pagging">...</a>
-                    <a href="#" class="btn_mange_pagging">Next <i class="fa fa-long-arrow-right"></i>&nbsp;&nbsp; </a>
-                </div>
-            </div>
+
         </div>
     </div>
     <div class="container-fluid fh5co_footer_bg pb-3">
         <div class="container animate-box">
             <div class="row">
-                <div class="col-12 spdp_right py-5"><img src="~/images/white_logo.png" alt="img" class="footer_logo" /></div>
+                <div class="col-12 spdp_right py-5"><img src="~/HinhAnh/white_logo.png" alt="img" class="footer_logo" /></div>
                 <div class="clearfix"></div>
                 <div class="col-12 col-md-4 col-lg-3">
                     <div class="col-12 col-md-12 col-lg-4 ">
@@ -341,42 +367,48 @@
                         <a href="#" class="footer_img_post_6"><img src="~/images/play-store.png" alt="img" /></a>
                     </div>
                 </div>
+
             </div>
+            <div class="fb-page" data-href="https://www.facebook.com/24New-744547766269246" data-tabs="timeline" data-width="340" data-height="130" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/truyenqq.page" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/truyenqq.page">Truyenqq - Truyen Tranh Online</a></blockquote></div>
+
         </div>
         <div class="container-fluid fh5co_footer_right_reserved">
             <div class="container">
                 <div class="row  ">
-                    <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2021, All rights reserved. Design by <a href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">FreeHTML5.co</a>. </div>
+                    <div class="col-12 col-md-6 py-4 Reserved"> Liên hệ Gmail <a href="mailto:tangtuphuc2017@gmail.com" title="Free HTML5 Bootstrap templates">tangtuphuc2017@gmail.com</a>. </div>
                     <div class="col-12 col-md-6 spdp_right py-4">
                         <a href="https://localhost:44354/" class="footer_last_part_menu">Trang chủ</a>
-                        <a href="#" class="footer_last_part_menu">Lịch sử</a>
-                        <a href="#" class="footer_last_part_menu">Theo dõi</a>
-                        <a href="#" class="footer_last_part_menu">Thảo luận</a>
+                        
+                        <a href="@Url.Action("LienHe","QuangCao")" class="footer_last_part_menu">Liên hệ</a>
+                       
+                        <a href="https://localhost:44354/WebTruyen/ThaoLuan" class="footer_last_part_menu">Thảo luận</a>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
-        <div class="gototop js-top">
-            <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
-        </div>
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+    </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 
-        <script src="~/Scripts/owl.carousel.min.js"></script>
-        <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-                integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-                crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-                integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-                crossorigin="anonymous"></script>
-        <!-- Waypoints -->
-        <script src="~/Scripts/jquery.waypoints.min.js"></script>
-        <!-- Main -->
-        <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+    <!-- Waypoints -->
+    <script src="~/Scripts/jquery.waypoints.min.js"></script>
+    <!-- Main -->
+    <script src="~/Scripts/main.js"></script>
 
 </body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0" nonce="wSopyUej"></script>
 </html>

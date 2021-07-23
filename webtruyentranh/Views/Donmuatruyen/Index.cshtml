@@ -1,0 +1,54 @@
+﻿@model IEnumerable<webtruyentranh.Models.DonMuaTruyen>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+  
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover" style="border:double">
+                <thead>
+                    <tr>
+                        <th style="border:double" class="border-top-0"> Mã độc giả</th>
+                        <th style="border:double" class="border-top-0">Đã thanh toán</th>
+                        <th style="border:double" class="border-top-0"> Ngày đặt</th>
+                        <th style="border:double" class="border-top-0">Tình trạng thanh toán </th>
+                        <th style="border:double" class="border-top-0">Đã thanh toán</th>
+                        <th style="border:double" class="border-top-0">Đã thanh toán</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+
+
+                        <td style="border:double"><span class="label label-purple label-rounded"> @Html.DisplayFor(modelItem => item.DocGia.HoTen)</span> </td>
+
+                        <td style="border:double"><span class="label label-info label-rounded"> @Html.DisplayFor(modelItem => item.NgayDat)</span> </td>
+                        <td style="border:double"><span class="label label-success label-rounded"> @Html.DisplayFor(modelItem => item.NgayGiao)</span> </td>
+                        <td style="border:double" class="txt-oflo"> @Html.DisplayFor(modelItem => item.Tinhtranggiaohang)</td>
+                        <td style="border:double" class="txt-oflo">@Html.DisplayFor(modelItem => item.Dathanhtoan)</td>
+
+                        <td style="border:double">
+                            <span class="font-medium">
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.MaDonHang }) |
+                                @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaDonHang }) |
+                                @Html.ActionLink("Xóa", "Delete", new { id = item.MaDonHang })
+                            </span>
+                        </td>
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -11,43 +11,40 @@
 
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenNXB)
-        </dt>
-
+       
         <dd>
+            <b> Tên Nhà Xuất Bản:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             @Html.DisplayFor(model => model.TenNXB)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Diachi)
-        </dt>
+      
 
         <dd>
+            <b>Địa Chỉ:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             @Html.DisplayFor(model => model.Diachi)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DienThoai)
-        </dt>
+       
 
         <dd>
+            <b> Điện Thoại:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             @Html.DisplayFor(model => model.DienThoai)
         </dd>
 
     </dl>
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
-            </div>
+<div class="form-actions no-color">
+    &emsp; &emsp; &emsp;<a href="@Url.Action("Index","Nhaxuatban")" style="background-color:#0026ff; border-radius:15px" class="btn btn-default">Quay trở lại</a>
+    <input type="submit" value="Delete" class="btn btn-default" style="background-color:#dc3545; border-radius:15px" />
 
-        }
+</div>
 
+    }
+   
 </div>
 <style>
     dt {

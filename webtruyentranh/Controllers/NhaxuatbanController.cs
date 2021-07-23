@@ -4,18 +4,47 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using webtruyentranh.Models;
+using PagedList;
 namespace webtruyentranh.Controllers
 {
     public class NhaxuatbanController : Controller
     {
         dbQlwebtruyenDataContext data = new dbQlwebtruyenDataContext();
         // GET: Nhaxuatban
-        public ActionResult Index()
+        public ActionResult Index(int? page, string keyword)
         {
             if (Session["Taikhoanadmin"] == null)
                 return RedirectToAction("Login", "Admin");
             else
-                return View(data.NHAXUATBANs.ToList());
+            {
+                int pagesize = 4;
+                int pagenum = (page ?? 1);
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    TempData["kwd"] = keyword;
+                    List<NHAXUATBAN> nxb = data.NHAXUATBANs.Where(n => n.TenNXB.ToLower().Contains(keyword.ToLower())).ToList();
+                    return View(nxb.OrderByDescending(n => n.MaNXB).ToPagedList(pagenum, pagesize));
+                }
+                return View(data.NHAXUATBANs.OrderByDescending(n => n.MaNXB).ToList().ToPagedList(pagenum, pagesize));
+            }
+        }
+
+        [HttpPost]
+        public ActionResult TimKiem(string keyword)
+        {
+            if (Session["Taikhoanadmin"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+            else
+            {
+                int pagesize = 4;
+                int pagenum = 1;
+
+                TempData["kwd"] = keyword;
+                List<NHAXUATBAN> nxb = data.NHAXUATBANs.Where(n => n.TenNXB.ToLower().Contains(keyword.ToLower())).ToList();
+                return View("Index", nxb.OrderByDescending(n => n.MaNXB).ToPagedList(pagenum, pagesize));
+            }
         }
         public ActionResult Details(int id)
         {

@@ -134,7 +134,7 @@ namespace webtruyentranh.Controllers
             dmt.NgayDat = DateTime.Now;
             var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["Ngaygiao"]);
             dmt.NgayGiao = DateTime.Parse(ngaygiao);
-            dmt.Tinhtranggiaohang = false;
+            dmt.Tinhtranggiaohang = int.Parse("1");
             dmt.Dathanhtoan = false;
             data.DonMuaTruyens.InsertOnSubmit(dmt);
             data.SubmitChanges();

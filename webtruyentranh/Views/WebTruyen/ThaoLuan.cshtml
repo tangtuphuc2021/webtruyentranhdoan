@@ -1,0 +1,208 @@
+﻿
+@{
+    ViewBag.Title = "ThaoLuan";
+    Layout = "~/Views/Shared/_LayoutChap.cshtml";
+}
+
+<div class="testimonial">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                   Wow Amazing !!!
+                </p>
+
+                <img src="~/HinhAnh/user-1.png" />
+                <h3 style="font-family:'Times New Roman'">Tấn Nguyễn</h3>
+            </div>
+
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    Đẹp quá bạn ơi
+                </p>
+
+                <img src="~/HinhAnh/user-2.png" />
+                <h3 style="font-family:'Times New Roman'">Duy Nguyễn</h3>
+            </div>
+
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    Niceeeeee !
+                </p>
+
+                <img src="~/HinhAnh/user-3.png" />
+                <h3 style="font-family:'Times New Roman'">Trường Nguyễn</h3>
+            </div>
+
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                   Được đấy bạn ơi
+                </p>
+
+                <img src="~/HinhAnh/user-4.png" />
+                <h3 style="font-family:'Times New Roman'">Nhựt Tân</h3>
+            </div>
+
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    I love wibu
+                </p>
+
+                <img src="~/HinhAnh/user-5.png" />
+                <h3 style="font-family:'Times New Roman'">Yora</h3>
+            </div>
+
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    Web truyện đẹp quá , mong bạn đừng làm nữa
+                </p>
+
+                <img src="~/HinhAnh/user-6.png" />
+                <h3 style="font-family:'Times New Roman'">Ông hoàng CSS</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                   Truyện hay quá
+                </p>
+
+                <img src="~/HinhAnh/user-7.png" />
+                <h3 style="font-family:'Times New Roman'">Luu</h3>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+<style>
+    .testimonial {
+        padding-top: 100px;
+    }
+
+        .testimonial .col-3 {
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+            .testimonial .col-3 img {
+                width: 50px;
+                margin-top: 20px;
+                border-radius: 50%;
+            }
+
+            .testimonial .col-3 hover {
+                transform: translateY(-10px);
+            }
+
+            .testimonial .col-3 h3 {
+                font-weight: 600;
+                color: #555;
+                font-size: 16px;
+            }
+
+    .fa.fa-quote-left {
+        font-size: 34px;
+        color: #ff523b;
+    }
+
+    .col-3 p {
+        font-size: 12px;
+        margin: 12px 0;
+        color: #777;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        Justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .header .row {
+        margin-top: 70px;
+    }
+
+    .btn {
+        -webkit-border-radius: 150px;
+        -moz-border-radius: 150px;
+        border-radius: 150px;
+        background-color: darkorange;
+        font-size: larger;
+    }
+
+    .col-2 {
+        flex-basis: 50%;
+        min-width: 300px;
+    }
+
+        .col-2 img {
+            max-width: 100%;
+            padding: 50px 0;
+        }
+
+        .col-2 h1 {
+            font-size: 50px;
+            line-height: 60px;
+            margin: 25px 0;
+        }
+
+    small-container {
+        border: 1px solid #333;
+        padding: 100px;
+        min-width: 1080px;
+        margin-bottom: 30px;
+    }
+
+    .categories {
+        margin: 70px 0;
+    }
+
+    .col-3 {
+        flex-basis: 30%;
+        min-width: 250px;
+        margin-bottom: 30px;
+        width: 500px;
+        height: auto;
+        float: right;
+    }
+
+        .col-3 img {
+            width: 95%;
+        }
+
+    .col-4 {
+        flex-basis: 25%;
+        padding: 10px;
+        min-width: 200px;
+        margin-bottom: 50px;
+        transition: transform 0.6s;
+        background-color: white;
+    }
+
+        .col-4 img {
+            width: 95%;
+        }
+
+        .col-4 hover {
+            transform: translateY(-5px);
+        }
+
+    h4 {
+        color: #555;
+        font-size: medium;
+    }
+
+    .rating .fa {
+        color: #ff523b;
+    }
+</style>

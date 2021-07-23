@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link href="~/Content/owl.carousel.css" rel="stylesheet" />
     <link href="~/Content/owl.theme.default.css" rel="stylesheet" />
+    <link href="~/Content2/themify-icons/themify-icons.css" rel="stylesheet" />
     <!-- Bootstrap CSS -->
     <link href="~/Content/style_1.css" rel="stylesheet" />
     <!-- Modernizr JS -->
@@ -30,14 +31,15 @@
 
 
     <div class="container-fluid fh5co_header_bg">
+        <a href="tel:0374768862" class="ti-headphone" style="float: right; line-height: 3.5;"> Phone: 0374768862</a>
         <div class="container">
             <div class="row">
                 <div class="col-12 fh5co_mediya_center">
                     <a href="#" class="color_fff fh5co_mediya_setting">
-                        <i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;Thứ 4, ngày 25 tháng 6
+                        <i class="fa fa-clock-o"> @DateTime.Now</i>&nbsp;&nbsp;&nbsp;
                     </a>
                     <div class="d-inline-block fh5co_trading_posotion_relative">
-                        <a href="#" class="treding_btn">Trending</a>
+                        <a href="#" class="treding_btn">READ EVERYTHING</a>
                         <div class="fh5co_treding_position_absolute"></div>
                     </div>
                     <a href="#" class="color_fff fh5co_mediya_setting">Chào mừng bạn đến trang web của chúng tôi</a>
@@ -49,26 +51,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-3 fh5co_padding_menu">
-                    <img src="~/images/logo.png" alt="img" class="fh5co_logo_width" />
+                    <img src="~/HinhAnh/logo.png" alt="img" class="fh5co_logo_width" />
                 </div>
                 <div class="col-12 col-md-9 align-self-center fh5co_mediya_right">
+
                     <div class="text-center d-inline-block">
-                        <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-search"></i></div></a>
+                        <a href="https://www.instagram.com/24new.read/?fbclid=IwAR3rzAcS38s-aapv9Gpot87Etlzm4yaGk7vAtL66hLJ7kA67YPaQuA1plbw" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="ti-instagram"></i></div></a>
                     </div>
                     <div class="text-center d-inline-block">
-                        <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div></a>
+                        <a href="https://www.youtube.com/channel/UCOMf0FAi5-qAEiot5wZsqeA?fbclid=IwAR0H2hL26pd1u7kZCa-aVwxO9Z_rkeGAyMBEZAlUCW5yPsatITq2tgLqwXg" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa ti-youtube"></i></div></a>
                     </div>
+
                     <div class="text-center d-inline-block">
-                        <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div></a>
+                        <a href="https://www.facebook.com/24New-744547766269246/" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div></a>
                     </div>
-                    <div class="text-center d-inline-block">
-                        <a href="#" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div></a>
-                    </div>
-                    <div class="text-center d-inline-block">
-                        <a href="#" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div></a>
-                    </div>
-                    <div class="d-inline-block text-center dd_position_relative ">
-                        <a href="@Url.Action("Dangnhap","Nguoidung")" class="fh5co_display_table"><div class="fh5co_verticle_middle"></div>Login</a>
+                     <div class="d-inline-block text-center dd_position_relative ">
+                        @if (Session["Taikhoan"] != null)
+                        {
+                            @*<a href="#" style="font-weight:bold">Xin Chào: @Session["tk"] </a>*@
+                            <a href="@Url.Action("DangXuat","Nguoidung")" class="fh5co_display_table"><div class="fh5co_verticle_middle"></div>Logout</a>
+
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Dangnhap","Nguoidung")" class="fh5co_display_table"><div class="fh5co_verticle_middle"></div>Login</a>
+
+                        }
 
                     </div>
                     <div class="d-inline-block text-center dd_position_relative ">
@@ -114,18 +122,29 @@
                                 @Html.Action("TinhTrang", "WebTruyen")
                             </div>
                         </li>
+                       
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">Lịch Sử <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#">Theo Dõi <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="@Url.Action("LienHe","QuangCao")">Liên Hệ <span class="sr-only">(current)</span></a>
                         </li>
 
                         <li class="nav-item ">
-                            <a class="nav-link" href="#">Thảo Luận <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="https://localhost:44354/WebTruyen/ThaoLuan">Thảo Luận <span class="sr-only">(current)</span></a>
                         </li>
                         <li>
-                            <a class="nav-link" href="#">Fanpage <span class="sr-only">(current)</span></a>
+                            @if (Session["Taikhoan"] != null)
+                            {
+
+
+                                <a class="nav-link" href="@Url.Action("TTDocGia","Nguoidung", new {id=  Session["id"] })">Thông Tin Tài Khoản <span class="sr-only">(current)</span></a>
+
+
+                            }
+                            else
+                            {
+                                <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+
+
+                            }
                         </li>
                     </ul>
                 </div>
@@ -146,7 +165,7 @@
     <div class="container-fluid fh5co_footer_bg pb-3">
         <div class="container animate-box">
             <div class="row">
-                <div class="col-12 spdp_right py-5"><img src="~/images/white_logo.png" alt="img" class="footer_logo" /></div>
+                <div class="col-12 spdp_right py-5"><img src="~/HinhAnh/white_logo.png" alt="img" class="footer_logo" /></div>
                 <div class="clearfix"></div>
                 <div class="col-12 col-md-4 col-lg-3">
                     <div class="col-12 col-md-12 col-lg-4 ">
@@ -162,9 +181,10 @@
                     <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2021, All rights reserved. Design by <a href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">FreeHTML5.co</a>. </div>
                     <div class="col-12 col-md-6 spdp_right py-4">
                         <a href="https://localhost:44354/" class="footer_last_part_menu">Trang chủ</a>
-                        <a href="#" class="footer_last_part_menu">Lịch sử</a>
-                        <a href="#" class="footer_last_part_menu">Theo dõi</a>
-                        <a href="#" class="footer_last_part_menu">Thảo luận</a>
+
+                        <a href="@Url.Action("LienHe","QuangCao")" class="footer_last_part_menu">Liên hệ</a>
+
+                        <a href="https://localhost:44354/WebTruyen/ThaoLuan" class="footer_last_part_menu">Thảo luận</a>
                     </div>
                 </div>
             </div>

@@ -19,31 +19,30 @@
 
                 <form class="form-horizontal mt-4">
                     <div class="form-group">
-                        @Html.LabelFor(model => model.TenNXB, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <b>Tên nhà xuất bản:</b>
                         @Html.EditorFor(model => model.TenNXB, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.TenNXB, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
 
-                        @Html.LabelFor(model => model.Diachi, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <b>    Địa chỉ:</b>
                         @Html.EditorFor(model => model.Diachi, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Diachi, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.DienThoai, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <b> Điện thoại:</b>
                         @Html.EditorFor(model => model.DienThoai, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
+                            <a href="@Url.Action("Index","Nhaxuatban")" style="background-color: #dc3545; border-radius: 15px" class="btn btn-default">Quay trở lại</a>
                             <input type="submit" value="Save" class="btn btn-default" />
                         </div>
                     </div>
                 </form>
             }
-            <div>
-                @Html.ActionLink("Back to List", "Index")
-            </div>
+         
         </div>
 
     </div>

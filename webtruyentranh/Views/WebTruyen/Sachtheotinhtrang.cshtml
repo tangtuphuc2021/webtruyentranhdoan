@@ -1,4 +1,6 @@
-﻿
+﻿@using webtruyentranh.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<Truyen>
 @{
     ViewBag.Title = "Sachtheotinhtrang";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -7,7 +9,7 @@
 <div class="container-fluid pt-3">
     <div class="container animate-box" data-animate-effect="fadeIn">
         <div>
-            <div class="fh5co_  heading fh5co_heading_border_bottom py-2 mb-4">Trending</div>
+            <div class="fh5co_  heading fh5co_heading_border_bottom py-2 mb-4">Danh sách</div>
         </div>
         <div class="owl-carousel owl-theme js" id="slider1">
             @foreach (var truyen in Model)
@@ -29,6 +31,13 @@
                 </div>
             }
 
+        </div>
+        <div class="pagination pagination-small pagination-centered" align="center" style="margin-left:420px">
+            <ul>
+
+                @Html.PagedListPager(Model, page => Url.Action("Sachtheotinhtrang", new { page = page }))
+
+            </ul>
         </div>
     </div>
 </div>

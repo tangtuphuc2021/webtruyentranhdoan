@@ -1,0 +1,42 @@
+﻿@model webtruyentranh.Models.TheLoai
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TheLoai</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dd>
+            <b>Mã thể loại:</b>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.MaTL)
+        </dd>
+      
+
+        <dd>
+            <b>  Tên thể loại:</b>&nbsp; &nbsp;&nbsp;
+            @Html.DisplayFor(model => model.TenTheLoai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    &emsp; &emsp; &emsp; @Html.ActionLink("Edit", "Edit", new { id = Model.MaTL })&nbsp; &nbsp; &nbsp; &nbsp;
+    <a href="@Url.Action("Index","Theloai")" style="background-color: #dc3545; border-radius: 15px" class="btn btn-default">Quay trở lại</a>
+</p>
+<style>
+    dt {
+        margin: 0 50px;
+    }
+
+    dd {
+        margin: 0 50px;
+    }
+
+ 
+</style>

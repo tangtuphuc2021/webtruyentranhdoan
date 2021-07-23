@@ -1,0 +1,68 @@
+﻿@model IEnumerable<webtruyentranh.Models.ChiTietDonMua>
+
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_LayoutLienHe.cshtml";
+}
+
+<h3 style="text-align:center;font-family:Arial, Helvetica, sans-serif">Lịch sử mua hàng</h3>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            Tên độc giả
+        </th>
+        <th>
+            Ngày đặt
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Hình Ảnh
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Giá Tiền
+        </th>
+        <th>
+            Trạng thái đơn hàng
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonMuaTruyen.DocGia.HoTen)
+            </td>
+            <td>
+                @String.Format("{0:dd/MM/yyyy}", item.DonMuaTruyen.NgayDat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Truyen.TenTruyen)
+
+            </td>
+            <td>
+                <img src="~/HinhAnh/@item.Truyen.Anhbia" width="150" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluong)
+            </td>
+            <td>
+                @String.Format("{0:0,0}", item.Dongia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonMuaTruyen.TrangThai.TrangThai1)
+            </td>
+
+
+        </tr>
+    }
+
+</table>

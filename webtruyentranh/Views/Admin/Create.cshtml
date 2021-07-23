@@ -1,0 +1,77 @@
+﻿@model webtruyentranh.Models.Truyen
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+ 
+<div class="row">
+    <div class="col-12">
+        <div class="card card-body">
+            @using (Html.BeginForm("Create", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <h3 class="card-title">Create Form</h3>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <form class="form-horizontal mt-4">
+            <div class="form-group">
+                <b>Tên truyện:</b>
+                @Html.EditorFor(model => model.TenTruyen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenTruyen, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+
+                <textarea name="Mota">Mô tả thông tin sách:</textarea>
+            </div>
+
+            <div class="form-group">
+                <b> Ảnh bìa:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <input type="file" name="fileupload" />
+                @*thong bao trung*@
+                @ViewBag.Thongbao
+
+            </div>
+
+
+            <div class="form-group">
+                <b> Ngày cập nhật:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="date" name="ThoiGian" />
+            </div>
+            <div class="form-group">
+                <b>Mã thể loại:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.DropDownList("MaTL")
+            </div>
+            <div class="form-group">
+                <b>Mã nhà xuất bản:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.DropDownList("MaNXB")
+            </div>
+            <div class="form-group">
+                <b>Mã nhà xuất bản:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.DropDownList("MaTinhTrang")
+            </div>
+            <div class="form-group">
+                <b>Số lượng tồn:</b>
+                @Html.EditorFor(model => model.Soluongton, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Soluongton, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <b>Giá bán:</b>
+                @Html.EditorFor(model => model.Giaban, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Giaban, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a href="@Url.Action("Truyen","Admin")" style="background-color: #dc3545; border-radius: 15px" class="btn btn-default">Quay trở lại</a>
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </form>
+            }
+           
+        </div>
+
+    </div>
+</div>

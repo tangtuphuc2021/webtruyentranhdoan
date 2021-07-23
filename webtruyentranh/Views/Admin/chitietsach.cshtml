@@ -1,0 +1,94 @@
+﻿@model webtruyentranh.Models.Truyen
+
+@{
+    ViewBag.Title = "chitietsach";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="card-title">Details Form</h3>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dd>
+            <b>Tên Truyện:</b>&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.TenTruyen)
+        </dd>
+        <br />
+        <dt>
+            <b> Mô Tả:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </dt>
+        <dd>
+
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <br />
+
+        <dd>
+            <b> Ảnh Bìa: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="@Url.Content("~/HinhAnh/"+  Model.Anhbia)" width="120px" />
+
+        </dd>
+        <br />
+
+        <dd>
+            <b>  Ngày Cập Nhật:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
+        </dd>
+
+        <br />
+        <dd>
+            <b>  Mã Thể Loại:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.TheLoai.TenTheLoai)
+        </dd>
+
+        <br />
+
+        <dd>
+            <b>Mã Nhà Xuất Bản:</b>&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.NHAXUATBAN.TenNXB)
+        </dd>
+
+        <br />
+
+        <dd>
+            <b>Mã Tình Trạng:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.TinhTrang.TenTinhTrang)
+        </dd>
+
+        <br />
+        <dd>
+            <b>Số Lượng Tồn:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+
+        <br />
+        <dd>
+            <b> Giá Bán:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.Giaban)
+        </dd>
+    </dl>
+</div>
+<p>
+    &emsp;@Html.ActionLink("Edit", "Edit", new { id = Model.MaNXB })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="@Url.Action("Truyen","Admin")" style="background-color: #dc3545; border-radius: 15px" class="btn btn-default">Quay trở lại</a>
+
+</p>
+<style>
+    dt {
+        margin: 0 50px;
+    }
+
+    dd {
+        margin: 0 50px;
+    }
+
+    p {
+        margin: 0 50px;
+    }
+</style>

@@ -1,0 +1,95 @@
+﻿@using webtruyentranh.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<Truyen>
+
+@{
+    ViewBag.Title = "Truyen";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+   
+    var keyword = TempData["kwd"];
+}
+
+@helper Trungcate(String input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length) <text> . . .</text>
+    }
+}
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body" >
+           
+            @Html.ActionLink("Thêm mới", "Create")
+        </div>
+        <div class="table-responsive">
+            <div style="display:inline-block;width:100%">
+                <div style="float:right">
+                    <form action="/Admin/TimKiem" method="post">
+                        <input type="text" name="keyword" />
+                        <button type="submit" style="color:inherit">Tìm kiếm</button>
+                    </form>
+                </div>
+            </div>
+            <table class="table table-hover"  style="border:double">
+                <thead>
+                    <tr>
+                        <th  style="border:double" width="150" class="border-top-0"> Tên truyện</th>
+                        <th  style="border:double" width="100" class="border-top-0">Mô tả</th>
+                        <th  style="border:double" width="100" class="border-top-0"> Ảnh bìa</th>
+                        <th  style="border:double" width="150" class="border-top-0"> Ngày cập nhật</th>
+                        <th  style="border:double" width="125" class="border-top-0">Mã thể loại</th>
+                        <th  style="border:double" width="200" class="border-top-0"> Mã nhà xuất bản</th>
+                        <th  style="border:double" width="150" class="border-top-0"> Mã tình trạng</th>
+                        <th  style="border:double" width="150" class="border-top-0"> Giá bán</th>
+                        <th  style="border:double" width="175"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td  style="border:double" class="txt-oflo"> @Html.DisplayFor(modelItem => item.TenTruyen)</td>
+                            <td  style="border:double" class="txt-oflo"> @Trungcate(item.Mota, 40) </td>
+                            <td  style="border:double" class="txt-oflo"> <img src="~/HinhAnh/@item.Anhbia" width="100" /></td>
+                            <td  style="border:double"><span class="label label-success label-rounded"> @String.Format("{0:dd/MM/yyyy}", item.Ngaycapnhat)</span> </td>
+                            <td  style="border:double"><span class="label label-info label-rounded"> @Html.DisplayFor(modelItem => item.TheLoai.TenTheLoai)</span> </td>
+                            <td  style="border:double"><span class="label label-success label-rounded"> @Html.DisplayFor(modelItem => item.NHAXUATBAN.TenNXB)</span> </td>
+                            <td  style="border:double"><span class="label label-purple label-rounded"> @Html.DisplayFor(modelItem => item.TinhTrang.TenTinhTrang)</span> </td>
+                            <td  style="border:double"><span class="label label-danger label-rounded"> @String.Format("{0:0,0}", item.Giaban) VNĐ</span>  </td>
+                            <td  style="border:double">
+                                <span class="font-medium">
+                                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaTruyen }) |
+                                    @Html.ActionLink("Chi Tiết", "Chitietsach", new { id = item.MaTruyen }) |
+                                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaTruyen })
+                                </span>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="pagination pagination-small pagination-centered" align="center">
+    <ul>
+
+        @Html.PagedListPager(Model, page => Url.Action("Truyen", new { page = page }))
+
+    </ul>
+</div>
+
+<style>
+    .menutrang li {
+        display: inline;
+    }
+</style>

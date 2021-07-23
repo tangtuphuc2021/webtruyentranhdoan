@@ -1,0 +1,96 @@
+﻿@model webtruyentranh.Models.Truyen
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h3 class="card-title">Details Form</h3>
+
+<h3>Bạn có thật sự muốn xóa ?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dd>
+            <b>Tên truyện:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.TenTruyen)
+        </dd>
+
+
+
+        <dd>
+            <b>Mô tả:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+
+
+        <dd>
+            <b>Ảnh bìa:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="~/HinhAnh/@Model.Anhbia" width="100" />
+        </dd>
+
+
+
+        <dd>
+            <b> Ngày cập nhật:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.Ngaycapnhat)
+        </dd>
+
+
+
+        <dd>
+            <b>Mã thể loại:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.MaTL)
+        </dd>
+
+
+
+        <dd>
+            <b>  Mã nhà xuất bản:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.MaNXB)
+        </dd>
+
+
+
+        <dd>
+            <b> Mã tình trạng:</b>&emsp;&emsp;&emsp;&emsp;&nbsp;
+            @Html.DisplayFor(model => model.MaTinhTrang)
+        </dd>
+
+        <dd>
+            <b> Số lượng tồn:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dd>
+            <b> Giá bán:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.Giaban)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            &emsp; &emsp; &emsp;<a href="@Url.Action("Truyen")" style="background-color:#0026ff; border-radius:15px" class="btn btn-default">Quay trở lại</a>
+            <input type="submit" value="Delete" class="btn btn-default" style="background-color:#dc3545; border-radius:15px" />
+
+        </div>
+
+    }
+</div>
+<style>
+    dt {
+        margin: 0 50px;
+    }
+
+    dd {
+        margin: 0 50px;
+    }
+</style>

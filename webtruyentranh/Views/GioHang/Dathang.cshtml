@@ -4,7 +4,10 @@
     Layout = "~/Views/Shared/_Layoutthanhtoan.cshtml";
 }
 
-
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
+</head>
 <h1 style="text-align:center;color:red">THÔNG TIN ĐƠN HÀNG </h1>>
 <br />
 <br />
@@ -134,11 +137,11 @@
                                 <td></td>
 
                                 <td>
-                                    <div> <input type="submit" value="Đồng Ý Đặt Hàng" /> </div>
+                                    <div  id="paypal-button-container"> <input type="submit" value="Thanh Toán" /> </div>
 
 
                                 </td>
-
+                              
                             </tr>
 
                         </table>
@@ -150,6 +153,27 @@
         </div>
     }
 </section>
+<script src="https://www.paypal.com/sdk/js?client-id=AVpareIrX5BC77DmGtyAFcEFyx_0-ZE3p-2lRr-FW3Emx3kTpoilyqYLuAw-QTIBePoOhHNPgMSUS8ua">
+
+</script>
+<script>
+ paypal.Buttons({
+ createOrder: function (data, actions) {
+ return actions.order.create({
+ purchase_units: [{
+ amount: {
+ value: @ViewBag.Tongtien
+ }
+ }]
+ });
+ },
+ onApprove: function (data, actions) {
+ return actions.order.capture().then(function (details) {
+ alert('Đơn hàng đã được thanh toán thanh công. Cảm ơn bạn đã mua hàng của chúng tôi. Chúng tôi sẽ cố gắng gửi hàng cho bạn trong thời gian mà bạn yêu cầu.Xin cảm ơn!!!');
+ });
+ }
+ }).render('#paypal-button-container');
+</script>
 <style>
     a {
         color: red

@@ -1,0 +1,141 @@
+﻿@model webtruyentranh.Models.TinTuc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dd>
+            <b>Tiêu Đề :</b>
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+
+
+
+        <dd>
+            <b>Mở Đầu:</b>
+            @Html.DisplayFor(model => model.MoDau)
+        </dd>
+
+
+
+        <dd>
+            <b>Nguồn:</b>
+            @Html.DisplayFor(model => model.Nguon)
+        </dd>
+
+
+        <dd>
+            <b>Tác Giả:</b>
+            @Html.DisplayFor(model => model.TacGia)
+        </dd>
+
+
+
+        <dd>
+            <b>Thời Gian:</b>
+            @string.Format("{0:dd/MM/yyyy}", Model.ThoiGian)
+        </dd>
+
+
+
+        <dd>
+            <b>Hình Ảnh:</b>
+            <span style="width:50px"><img src="~/HinhAnh/@Model.HinhAnh" /></span>
+        </dd>
+
+
+
+        <dd>
+            <b>Hình Ảnh 2:</b>
+            <span style="width:50px"><img src="~/HinhAnh/@Model.HinhAnh2" /></span>
+        </dd>
+
+
+
+        <dd>
+            <b>Hình Ảnh 3:</b>
+            <span style="width:50px"><img src="~/HinhAnh/@Model.HinhAnh3" /></span>
+        </dd>
+
+
+
+        <dd>
+            <b>Nội Dung:</b>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+
+
+        <dd>
+            <b>Nội Dung 2:</b>
+            @Html.DisplayFor(model => model.NoiDung2)
+        </dd>
+
+
+
+        <dd>
+            <b> Nội Dung 3:</b>
+            @Html.DisplayFor(model => model.NoiDung3)
+        </dd>
+
+
+
+        <dd>
+            <b>Nội Dung 4:</b>
+            @Html.DisplayFor(model => model.NoiDung4)
+        </dd>
+
+
+
+        <dd>
+            <b>Chú Thích:</b>
+            @Html.DisplayFor(model => model.ChuThich)
+        </dd>
+
+
+
+        <dd>
+            <b>Chú Thích 2:</b>
+            @Html.DisplayFor(model => model.ChuThich2)
+        </dd>
+
+
+
+        <dd>
+            <b>Chú Thích 3:</b>
+            @Html.DisplayFor(model => model.ChuThich3)
+        </dd>
+
+    </dl>
+</div>
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaTinTuc }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+<p>
+    &emsp;@Html.ActionLink("Edit", "Edit", new { id = Model.MaTinTuc })&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="@Url.Action("Index","Tintuc")" style="background-color: #dc3545; border-radius: 15px" class="btn btn-default">Quay trở lại</a>
+
+</p>
+<style>
+    dt {
+        margin: 0 50px;
+    }
+
+    dd {
+        margin: 0 50px;
+    }
+
+    p {
+        margin: 0 50px;
+    }
+</style>

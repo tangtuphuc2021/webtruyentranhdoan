@@ -1,0 +1,406 @@
+﻿
+@{
+    ViewBag.Title = "DSChuong";
+    Layout = "~/Views/Shared/_LayoutChap.cshtml";
+}
+
+<div class="block01">
+    <div class="center" itemscope itemtype="http://schema.org/Book">
+
+        <div class="txt">
+            <p class="info-item">Tình trạng: Đang Cập Nhật</p>
+            <div>
+                <span>Thống kê:</span>
+                <span class="sp01">
+                    <i class="ti-thumb-up"></i>
+                    <span class="sp02 number-like">709</span>
+                </span>
+                <span class="sp01">
+                    <i class="ti-heart"></i>
+                    <span class="sp02">2,056</span>
+                </span>
+                <span class="sp01">
+                    <i class="ti-eye"></i>
+                    <span class="sp02">267,058</span>
+                </span>
+            </div>
+        </div>
+        <ul class="story-detail-menu">
+            <li class="li02">
+                <a href="javascript:void(0);" class="button is-danger is-rounded btn-subsribe subsribeBook" data-page="index" data-id="9338">
+                    <span class="ti-heart" style="color:red"></span>Theo dõi
+                </a>
+            </li>
+            <li class="li03">
+                <a href="javascript:void(0);" class="button is-danger is-rounded btn-like" data-id="9338"><span class="ti-thumb-up" style="color:blue"></span>Thích</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<div class="block02">
+    <div class="box">
+        <div class="title">
+            <h2 class="story-detail-title">DANH SÁCH CHƯƠNG</h2>
+        </div>
+    </div>
+    @foreach (var DSChuong in Model)
+    {
+
+        <div class="story-see-main">
+            <div class="block">
+                <div class="box">
+                    <div id="path" class="path-top">
+                        <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumList">
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+
+
+
+                                <a target="_blank" href="@Url.Action("ChuongHinh", "ChapTruyen", new { id =DSChuong.MaChap })">Chương @DSChuong.ChuongSo</a>
+
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    }
+</div>
+<style>
+    a, a:hover {
+        color: black
+    }
+    .box {
+        background-color: white;
+        border-radius: 6px;
+        display: block;
+        padding: 0 300px 0;
+        text-align: center;
+    }
+
+    body {
+        font-family: Quicksand, sans-serif;
+        font-size: 15px;
+        background-color: white;
+    }
+
+    body {
+        font-weight: 400;
+        line-height: 1.5;
+    }
+
+    .story-detail .block02 .box {
+        max-height: 500px;
+        overflow-y: auto;
+    }
+
+    .story-detail .block02 .title {
+        overflow: hidden;
+    }
+
+    .title:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+
+    .title {
+        color: #363636;
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.125;
+    }
+
+    .story-detail h2.story-detail-title {
+        color: #f18121;
+        font-size: 24px;
+        padding-left: 30px;
+        background: url(/HinhAnh/story-list-icon06.png) left center no-repeat;
+        background-size: 24px 24px !important;
+        float: left;
+    }
+
+    h2 {
+        display: block;
+        font-weight: 400;
+        margin: 0;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding: 0;
+        line-height: 1.1;
+    }
+
+    .subtitle, .title {
+        word-break: break-word;
+    }
+
+
+
+    .breadcrumb, .button, .delete, .file, .is-unselectable, .modal-close, .pagination-ellipsis, .pagination-link, .pagination-next, .pagination-previous, .tabs {
+        user-select: none;
+    }
+
+    .breadcrumb {
+        margin-bottom: 20px;
+        list-style: none;
+        border-radius: 4px;
+    }
+
+    ol {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+    }
+
+    #path {
+        color: #424242;
+    }
+
+    html {
+        background-color: #fff;
+        -webkit-font-smoothing: antialiased;
+        min-width: 300px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        text-rendering: optimizeLegibility;
+        text-size-adjust: 100%;
+    }
+
+    html {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .story-see .story-see-main .block .story-see-content {
+        text-align: center;
+        padding: 0px;
+        position: relative;
+    }
+
+    .reading .reading-detail .page-chapter {
+        position: relative;
+        text-align: center;
+    }
+
+    .testimonial {
+        padding-top: 100px;
+    }
+
+        .testimonial .col-3 {
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+            .testimonial .col-3 img {
+                width: 50px;
+                margin-top: 20px;
+                border-radius: 50%;
+            }
+
+            .testimonial .col-3 hover {
+                transform: translateY(-10px);
+            }
+
+            .testimonial .col-3 h3 {
+                font-weight: 600;
+                color: #555;
+                font-size: 16px;
+            }
+
+    .fa.fa-quote-left {
+        font-size: 34px;
+        color: #ff523b;
+    }
+
+    .col-3 p {
+        font-size: 12px;
+        margin: 12px 0;
+        color: #777;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        Justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .header .row {
+        margin-top: 70px;
+    }
+
+    .btn {
+        -webkit-border-radius: 150px;
+        -moz-border-radius: 150px;
+        border-radius: 150px;
+        background-color: darkorange;
+        font-size: larger;
+    }
+
+    .col-2 {
+        flex-basis: 50%;
+        min-width: 300px;
+    }
+
+        .col-2 img {
+            max-width: 100%;
+            padding: 50px 0;
+        }
+
+        .col-2 h1 {
+            font-size: 50px;
+            line-height: 60px;
+            margin: 25px 0;
+        }
+
+    small-container {
+        border: 1px solid #333;
+        padding: 100px;
+        min-width: 1080px;
+        margin-bottom: 30px;
+    }
+
+    .categories {
+        margin: 70px 0;
+    }
+
+    .col-3 {
+        flex-basis: 30%;
+        min-width: 250px;
+        margin-bottom: 30px;
+        width: 500px;
+        height: auto;
+        float: right;
+    }
+
+        .col-3 img {
+            width: 95%;
+        }
+
+    .col-4 {
+        flex-basis: 25%;
+        padding: 10px;
+        min-width: 200px;
+        margin-bottom: 50px;
+        transition: transform 0.6s;
+        background-color: white;
+    }
+
+        .col-4 img {
+            width: 95%;
+        }
+
+        .col-4 hover {
+            transform: translateY(-5px);
+        }
+
+    h4 {
+        color: #555;
+        font-size: medium;
+    }
+
+    .rating .fa {
+        color: #ff523b;
+    }
+
+    .title {
+        text-align: center;
+        margin: 0 auto 80px;
+        position: relative;
+        line-height: 60px;
+        color: #555;
+    }
+
+        .title::after {
+            background-position: center;
+            border: 2px solid red;
+            padding: 10px;
+            border-radius: 25px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+    .offer {
+        background: radial-gradient( circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+        margin-top: auto;
+        padding: 10px;
+    }
+
+    .col-2 .offer-img {
+        padding: 10px;
+    }
+
+    small {
+        color: white;
+    }
+
+    div {
+        display: block;
+    }
+
+    .story-detail .block01 {
+        width: 100%;
+        float: left;
+        padding-bottom: 30px;
+        padding: 0 300px;
+        text-align: left;
+        position: relative;
+    }
+
+    .story-detail .story-detail-menu li.li02 a {
+        background: #ff2853;
+    }
+
+    .story-detail .story-detail-menu li a {
+        font-size: 16px;
+        float: left;
+        color: #f5f5f5 !important;
+        margin-right: 8px;
+        min-width: 145px;
+    }
+
+    .text {
+        padding: 0 300px;
+        text-align: left;
+    }
+
+    .button.is-rounded {
+        border-radius: 290486px;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .button {
+        border-width: 1px;
+        cursor: pointer;
+        justify-content: center;
+        padding-bottom: calc(.375em - 1px);
+        padding-top: calc(.375em - 1px);
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .button, .file-cta, .file-name, .input, .pagination-ellipsis, .pagination-link, .pagination-next, .pagination-previous, .select select, .textarea {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        align-items: center;
+        border: 1px solid transparent;
+        box-shadow: none;
+        display: inline-flex;
+        height: 2.25em;
+        line-height: 1.5;
+        position: relative;
+        vertical-align: top;
+    }
+</style>

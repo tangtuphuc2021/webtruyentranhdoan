@@ -1,0 +1,81 @@
+﻿@model webtruyentranh.Models.DocGia
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DocGia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            &emsp;<b>Họ tên: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+
+        <dd>
+            &emsp;<b>Tài khoản:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.Taikhoan)
+        </dd>
+
+      
+
+        <dd>
+            &emsp;<b>Mật khẩu:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.Matkhau)
+        </dd>
+
+
+        <dd>
+            &emsp;<b>Email:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+       
+
+        <dd>
+            &emsp;<b>Địa chỉ:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.Diachi)
+        </dd>
+
+      
+
+        <dd>
+            &emsp;<b>Điện thoại:</b>&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.DisplayFor(model => model.Dienthoai)
+        </dd>
+
+       
+
+        <dd>
+            &emsp;<b>Ngày sinh:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaysinh)
+        </dd>
+
+       
+
+    </dl>
+</div>
+<p>
+    &emsp;@Html.ActionLink("Edit", "Edit", new { id = Model.MaDG })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="@Url.Action("Index","Docgia")" style="background-color: #dc3545; border-radius: 15px" class="btn btn-default">Quay trở lại</a>
+
+</p>
+<style>
+    dt {
+        margin: 0 50px;
+    }
+
+    dd {
+        margin: 0 50px;
+    }
+
+    p {
+        margin: 0 50px;
+    }
+</style>

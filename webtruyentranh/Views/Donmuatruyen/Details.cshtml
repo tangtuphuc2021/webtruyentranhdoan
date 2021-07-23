@@ -1,0 +1,47 @@
+﻿@model webtruyentranh.Models.DonMuaTruyen
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dd>
+            &emsp;&emsp;&emsp;<b>Mã độc giả:</b>
+            @Html.DisplayFor(model => model.DocGia.HoTen)
+        </dd>
+
+        <dd>
+            &emsp;&emsp;&emsp;<b>Ngày đặt:</b>
+            @Html.DisplayFor(model => model.NgayDat)
+        </dd>
+
+
+        <dd>
+            &emsp;&emsp;&emsp;<b>Ngày giao:</b>
+            @Html.DisplayFor(model => model.NgayGiao)
+        </dd>
+
+        <dd>
+            &emsp;&emsp;&emsp;<b>Tình trạng giao hàng</b>
+            @Html.DisplayFor(model => model.Tinhtranggiaohang)
+        </dd>
+        <dd>
+            &emsp;&emsp;&emsp;<b>Đã thanh toán</b>
+            @Html.DisplayFor(model => model.Dathanhtoan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    &emsp;&emsp;&emsp;@Html.ActionLink("Edit", "Edit", new { id = Model.MaDonHang })&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="@Url.Action("Index","Donmuatruyen")" style="background-color: #dc3545; border-radius: 15px" class="btn btn-default">Quay trở lại</a>
+
+</p>
+</p>

@@ -19,6 +19,8 @@
     you can substitue the span of reauth email for a input with the email and
     include the remember me checkbox
     -->
+
+
 <div class="container">
     <table id="cart" class="table table-hover table-condensed">
         <thead>
@@ -51,27 +53,27 @@
                     <td data-th="Tên Sách"><img src="~/HinhAnh/@item.sAnhbia" width="30%" /></td>
                     @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { id = item.iMaTruyen }))
                     {
-                    <td data-th="Số Lượng">
-                        <input type="number" class="form-control text-center" value="@item.iSoluong" name="txtSoluong"size="3" min="1">
-                    </td>
-                    <td data-th="Subtotal" class="text-center">@String.Format("{0:0,0}", item.dGiaban)</td>
-                    <td data-th="Subtotal" class="text-center">@String.Format("{0:0,0}", item.dThanhtien)</td>
-                    <td>
-                        <button class="btn btn-info btn-sm">
-                            <a href="@Url.Action("Chitiettruyentraphi", "WebTruyen", new { id = item.iMaTruyen })">Chi Tiết</a>
-                        </button>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">
-                            <b>
-                                @Html.ActionLink("Xóa", "XoaGiohang", new { @iMaSP = item.iMaTruyen })
+                        <td data-th="Số Lượng">
+                            <input type="number" class="form-control text-center" value="@item.iSoluong" name="txtSoluong" size="3" min="1">
+                        </td>
+                        <td data-th="Subtotal" class="text-center">@String.Format("{0:0,0}", item.dGiaban)</td>
+                        <td data-th="Subtotal" class="text-center">@String.Format("{0:0,0}", item.dThanhtien)</td>
+                        <td>
+                            <button class="btn btn-info btn-sm">
+                                <a href="@Url.Action("Chitiettruyentraphi", "WebTruyen", new { id = item.iMaTruyen })">Chi Tiết</a>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">
+                                <b>
+                                    @Html.ActionLink("Xóa", "XoaGiohang", new { @iMaSP = item.iMaTruyen })
 
-                            </b>
-                        </button>
-                    </td>
-                    <td>
-                        <input type="submit" value="Cập nhật" style="background:#05f7f7 ;color:red"  />
-                    </td>
+                                </b>
+                            </button>
+                        </td>
+                        <td>
+                            <input type="submit" value="Cập nhật" style="background:#05f7f7 ;color:red" />
+                        </td>
                     }
 
                 </tr>
@@ -85,7 +87,7 @@
                 <td></td>
                 <td colspan="1" class="hidden-xs text-center"><strong>Số Lượng Sách:@ViewBag.Tongsoluong</strong></td>
                 <td colspan="2" class="hidden-xs text-center"><strong>Tổng Tiền:@String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</strong></td>
-               
+
                 <td colspan="2">@Html.ActionLink("Xoá Giỏ Hàng ", "XoaTatcaGiohang")</td>
                 <td>
                     <button class="btn btn-warning">
@@ -100,9 +102,9 @@
         </tfoot>
     </table>
 </div>
+
 <style>
     a {
         color: red
-   
     }
 </style>

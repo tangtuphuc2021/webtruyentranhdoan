@@ -1,0 +1,44 @@
+﻿@model webtruyentranh.Models.TheLoai
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3 class="card-title">Details Form</h3>
+
+<h3>Bạn có thật sự muốn xóa ?</h3>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên thể loại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTheLoai)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <a href="@Url.Action("Index","Theloai")" style="background-color:#0026ff; border-radius:15px" class="btn btn-default">Quay trở lại</a>
+            <input type="submit" value="Delete" class="btn btn-default" style="background-color:#dc3545; border-radius:15px" />
+
+        </div>
+    }
+</div>
+<style>
+    dt {
+        margin: 0 50px;
+    }
+
+    dd {
+        margin: 0 50px;
+    }
+</style>

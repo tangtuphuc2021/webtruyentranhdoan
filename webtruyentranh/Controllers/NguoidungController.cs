@@ -103,6 +103,7 @@ namespace webtruyentranh.Controllers
                 {
                     Session["Taikhoan"] = kh;
                     //ViewBag.tendn = kh.HoTen;
+                    Session["id"] = kh.MaDG;
                     return RedirectToAction("Index", "WebTruyen");
                    
                 }
@@ -110,6 +111,29 @@ namespace webtruyentranh.Controllers
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
                 }
             return View();
+        }
+        public ActionResult DangXuat()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "WebTruyen");
+        }
+        public ActionResult TTDocGia(int id)
+        {
+            var info = from IC in data.DocGias where IC.MaDG == id select IC;
+            return View(info.Single());
+        }
+        [HttpPost, ActionName("TTDocGia")]
+        public ActionResult Sua(int id)
+        {
+            DocGia Cus = data.DocGias.SingleOrDefault(n => n.MaDG == id);
+            UpdateModel(Cus);
+            data.SubmitChanges();
+            return RedirectToAction("TTDocGia", "NguoiDung");
+        }
+        public ActionResult History(int id)
+        {
+            var his = from h in data.ChiTietDonMuas.OrderByDescending(n => n.MaDonHang) where h.DonMuaTruyen.MaDG == id select h;
+            return View(his);
         }
     }
 }

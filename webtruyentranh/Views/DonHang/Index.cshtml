@@ -1,0 +1,68 @@
+﻿
+@using webtruyentranh.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<ChiTietDonMua>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover" style="border:double">
+                <thead>
+                    <tr>
+                        <th style="border:double" class="border-top-0"> Mã đơn hàng</th>
+                        <th style="border:double" class="border-top-0">Tên độc giả</th>
+                        <th style="border:double" class="border-top-0"> Tên Truyện</th>
+                        <th style="border:double" class="border-top-0"> Ngày đặt</th>
+                        <th style="border:double" class="border-top-0"> Ngày giao</th>
+                        <th style="border:double" class="border-top-0">Số lượng</th>
+                        <th style="border:double" class="border-top-0">Đơn giá</th>
+                        <th style="border:double" class="border-top-0">Trạng thái giao hàng </th>
+                        <th style="border:double" class="border-top-0"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+
+                            <td style="border:double"><span class="label label-purple label-rounded"> @Html.DisplayFor(modelItem => item.MaDonHang)</span> </td>
+                            <td style="border:double"><span class="label label-info label-rounded"> @Html.DisplayFor(modelItem => item.DonMuaTruyen.DocGia.HoTen)</span> </td>
+                            <td style="border:double"><span class="label label-danger label-rounded"> @Html.DisplayFor(modelItem => item.Truyen.TenTruyen)</span> </td>
+                            <td style="border:double"><span class="label label-success label-rounded"> @String.Format("{0:dd/MM/yyyy}", item.DonMuaTruyen.NgayDat)</span> </td>
+                            <td style="border:double"><span class="label label-inverse label-rounded"> @String.Format("{0:dd/MM/yyyy}", item.DonMuaTruyen.NgayGiao)</span> </td>
+                            <td style="border:double"><span> @Html.DisplayFor(modelItem => item.Soluong)</span> </td>
+                            <td style="border:double"><span class="label label-megna label-rounded"> @String.Format("{0:0,0}", item.Dongia)</span> </td>
+                            <td style="border:double"><span class="label label-info label-rounded"> @Html.DisplayFor(modelItem => item.DonMuaTruyen.TrangThai.TrangThai1)</span> </td>
+
+                            <td style="border:double">
+                                <span class="font-medium">
+                                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaDonHang })
+
+
+                                </span>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="pagination pagination-small pagination-centered" align="center" style="margin-left:10px">
+    <ul>
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+
+    </ul>
+</div>
+

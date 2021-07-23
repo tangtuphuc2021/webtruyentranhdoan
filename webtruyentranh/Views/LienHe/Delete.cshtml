@@ -1,0 +1,68 @@
+﻿@model webtruyentranh.Models.LienHe
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dd>
+            Họ Tên:
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+
+
+        <dd>
+            Địa Chỉ:
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+
+
+        <dd>
+            Email:
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+
+
+        <dd>
+            Số Điện Thoại:
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+
+
+
+        <dd>
+            Góp Ý:
+            @Html.DisplayFor(model => model.GopY)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <a href="@Url.Action("Index","LienHe")" style="background-color:#0026ff; border-radius:15px" class="btn btn-default">Quay trở lại</a>
+            <input type="submit" value="Delete" class="btn btn-default" style="background-color:#dc3545; border-radius:15px" />
+
+        </div>
+    }
+</div>
+<style>
+    dt {
+        margin: 0 50px;
+    }
+
+    dd {
+        margin: 0 50px;
+    }
+</style>

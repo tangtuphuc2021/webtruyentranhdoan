@@ -112,6 +112,48 @@ namespace webtruyentranh.Controllers
                 }
             return View();
         }
+        [HttpGet]
+        public ActionResult Quenmatkhau()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Quenmatkhau(FormCollection collection)
+        {
+            var tendn = collection["TenDN"];
+            var email = collection["Email"];
+            var dienthoaidg = collection["Dienthoai"];
+            var matkhau = collection["MatKhau"];
+            var nhaplaimatkhau = collection["Nhaplaimatkhau"];
+
+            DocGia dg = data.DocGias.SingleOrDefault(n => n.Taikhoan.Trim() == tendn.Trim());
+
+            if(dg !=null)
+            {
+                if (dg.Dienthoai.Trim() == dienthoaidg.Trim() && dg.Email.Trim() == email.Trim())
+                {
+                    if (matkhau != nhaplaimatkhau)
+                    {
+                        ViewBag.Thongbao = "Nhập lại mật khẩu không đúng";
+                    }
+                    else
+                    if (matkhau.Trim() == nhaplaimatkhau.Trim())
+                    {
+                        dg.Taikhoan = tendn;
+                        dg.Matkhau = matkhau;
+                        dg.Email = email;
+                        dg.Dienthoai = dienthoaidg;
+                        data.SubmitChanges();
+                        return RedirectToAction("Dangnhap", "Nguoidung");
+                    }
+                }
+                    ViewBag.Thongbao = "Nhập thông tin sai vui lòng nhập lại";
+            }
+            else {
+                ViewBag.Thongbao = "Nhập thông tin không đúng"; 
+            }
+            return this.Dangnhap();
+        }
         public ActionResult DangXuat()
         {
             Session.Clear();

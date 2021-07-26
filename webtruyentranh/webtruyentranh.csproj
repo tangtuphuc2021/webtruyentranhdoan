@@ -1310,6 +1310,7 @@
     <Content Include="Views\DonHang\Index.cshtml" />
     <Content Include="Views\DonHang\Edit.cshtml" />
     <Content Include="Views\Nguoidung\History.cshtml" />
+    <Content Include="Views\Nguoidung\Quenmatkhau.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

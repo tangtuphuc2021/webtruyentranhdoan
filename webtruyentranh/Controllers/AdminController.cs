@@ -203,9 +203,9 @@ namespace webtruyentranh.Controllers
                
                     Truyen truyen = data.Truyens.SingleOrDefault(n => n.MaTruyen == id);
 
-                    ViewBag.MaTL = new SelectList(data.TheLoais.ToList().OrderBy(n => n.TenTheLoai), "MaTL", "TenTheLoai");
-                    ViewBag.MaNXB = new SelectList(data.NHAXUATBANs.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
-                    ViewBag.MaTinhTrang = new SelectList(data.TinhTrangs.ToList().OrderBy(n => n.MaTinhTrang), "MaTinhTrang", "TenTinhTrang");
+                    ViewBag.MaTL = new SelectList(data.TheLoais.ToList().OrderBy(n => n.TenTheLoai), "MaTL", "TenTheLoai", truyen.MaTL);
+                    ViewBag.MaNXB = new SelectList(data.NHAXUATBANs.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB", truyen.MaNXB);
+                    ViewBag.MaTinhTrang = new SelectList(data.TinhTrangs.ToList().OrderBy(n => n.MaTinhTrang), "MaTinhTrang", "TenTinhTrang", truyen.MaTinhTrang);
                     return View(truyen);
                 
                
